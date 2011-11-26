@@ -1,0 +1,204 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>无标题页</title>
+    <link href="style/index.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+*{margin:0;padding:0;}
+body{margin:10px;font-size:14px;font-family:宋体}
+h1{font-size:26px;margin:10px 0 15px;}
+#commentHolder{width:540px;border-bottom:1px solid #aaa;}
+.comment{padding:5px 8px;background:#f8fcff;border:1px dashed #aaa;font-size:14px;border-bottom:none;}
+.comment p{padding:5px 0;}
+.comment p.title{color:#1f3a87;font-size:12px;}
+.comment p span{float:right;color:#666}
+.comment div{background:#ffe;padding:3px;border:1px solid #aaa;line-height:140%;margin-bottom:5px;}
+.comment div span{color:#1f3a87;font-size:12px;}
+</style>
+
+    <script type="text/javascript">
+    function replyLeaveWord(replyId)
+    {
+        alert(replyId);
+    }
+    
+   function doSubmitReply(replyid,LeaveWordId)
+    {
+       
+        var a=document.getElementById("txtDivReply").value;
+           var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            if(!xmlhttp){
+                alert("new xmlhttp error");
+                return false;
+            }
+            xmlhttp.open("POST","InsertReply.ashx?id="+replyid+"&LeaveWordId="+LeaveWordId+"&replyContent="+a,false);
+            xmlhttp.onreadystatechange=function(){
+                if(xmlhttp.readyState==4){
+                    if(xmlhttp.status==200){
+                       if(xmlhttp.responseText=="200")
+                       alert("留言成功");
+                       else
+                       alert("留言失败，请重新留言");
+                    }
+                    else{
+                        alert("server ruturn error");
+                    }
+                }
+            }
+            xmlhttp.send();
+         document.body.removeChild(document.getElementById("divObj"));  
+        document.body.removeChild(document.getElementById("divMsg")); 
+    }
+    </script>
+
+    <script type="text/javascript" language="javascript"> 
+function alertWin(title, msg, w, h,replyid,LeaveWordId){  
+
+ var myheight=((document.body.clientHeight-h)/2)+document.documentElement.scrollTop;//document.documentElement.scrollTop滚动条卷起了的高度
+    var titleheight = "22px"; // 提示窗口标题高度  
+    var bordercolor = "#666699"; // 提示窗口的边框颜色  
+    var titlecolor = "#FFFFFF"; // 提示窗口的标题颜色  
+    var titlebgcolor = "#666699"; // 提示窗口的标题背景色 
+    var bgcolor = "#FFFFFF"; // 提示内容的背景色 
+    var iWidth = document.documentElement.scrollWidth;  
+    var iHeight = document.documentElement.scrollHeight;  
+    var bgObj = document.createElement("div");  
+    bgObj.id="divObj";
+    bgObj.style.cssText = "position:absolute;left:0px;top:0px;width:"+iWidth+"px;height:"+Math.max(document.body.clientHeight, iHeight)+"px;filter:Alpha(Opacity=30);opacity:0.3;background-color:#000000;z-index:101;"; 
+    document.body.appendChild(bgObj);  
+    var msgObj=document.createElement("div"); 
+    msgObj.id="divMsg";
+    msgObj.style.cssText = "position:fixed;font:11px '宋体';top:"+(document.body.clientHeight-h)/2+"px;left:"+(document.body.clientWidth-w)/2+"px;width:"+w+"px;height:"+h+"px;text-align:center;border:1px solid "+bordercolor+";background-color:"+bgcolor+";padding:1px;line-height:22px;z-index:102;"; 
+    document.body.appendChild(msgObj); 
+     
+    var table = document.createElement("table"); 
+    msgObj.appendChild(table); 
+    table.style.cssText = "margin:0px;border:0px;padding:0px;"; 
+    table.cellSpacing = 0; 
+    var tr = table.insertRow(-1); 
+    var titleBar = tr.insertCell(-1); 
+    titleBar.style.cssText = "width:100%;height:"+titleheight+"px;text-align:left;padding:3px;margin:0px;font:bold 13px '宋体';color:"+titlecolor+";border:1px solid " + bordercolor + ";cursor:move;background-color:" + titlebgcolor; 
+    titleBar.style.paddingLeft = "10px"; 
+    titleBar.innerHTML = title; 
+    var moveX = 0; 
+    var moveY = 0; 
+    var moveTop = 0; 
+    var moveLeft = 0; 
+    var moveable = false; 
+    var docMouseMoveEvent = document.onmousemove; 
+    var docMouseUpEvent = document.onmouseup; 
+    titleBar.onmousedown = function() { 
+        var evt = getEvent(); 
+        moveable = true;  
+        moveX = evt.clientX; 
+        moveY = evt.clientY; 
+        moveTop = parseInt(msgObj.style.top); 
+        moveLeft = parseInt(msgObj.style.left); 
+         
+        document.onmousemove = function() { 
+            if (moveable) { 
+                var evt = getEvent(); 
+                var x = moveLeft + evt.clientX - moveX; 
+                var y = moveTop + evt.clientY - moveY; 
+                if ( x > 0 &&( x + w < iWidth) && y > 0 && (y + h < iHeight) ) { 
+                    msgObj.style.left = x + "px"; 
+                    msgObj.style.top = y + "px"; 
+                } 
+            }     
+        }; 
+        document.onmouseup = function () {  
+            if (moveable) {  
+                document.onmousemove = docMouseMoveEvent; 
+                document.onmouseup = docMouseUpEvent; 
+                moveable = false;  
+                moveX = 0; 
+                moveY = 0; 
+                moveTop = 0; 
+                moveLeft = 0; 
+            }  
+        }; 
+    } 
+     
+    var closeBtn = tr.insertCell(-1); 
+    closeBtn.style.cssText = "cursor:pointer; padding:0px;background-color:" + titlebgcolor; 
+    closeBtn.innerHTML = "<span style='font-size:15pt; color:"+titlecolor+";'>×</span>"; 
+    closeBtn.onclick = function(){  
+        document.body.removeChild(bgObj);  
+        document.body.removeChild(msgObj);  
+    }  
+    var msgBox = table.insertRow(-1).insertCell(-1); 
+    msgBox.style.cssText = "font:10pt '宋体';"; 
+    msgBox.colSpan  = 2; 
+
+    msgBox.innerHTML ="<div id=content style='text-align:center'>"+ msg +"</div>"+"<div style='text-align:center'><input type='text' id='txtDivReply' style='width:80%; height:"+(h-100)+"px'/><div><input type='button' style='text-aligh:center' value='确 定' onclick='doSubmitReply("+replyid+","+LeaveWordId+")' /></div></div>"; 
+      
+   
+    // 获得事件Event对象，用于兼容IE和FireFox 
+    function getEvent() { 
+        return window.event || arguments.callee.caller.arguments[0]; 
+    } 
+}  
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="style">
+        </div>
+        <div id="top" style="width: 1000px">
+            <div id="clock">
+
+                <script language="javascript" type="text/jscript">
+    <!--
+	    dayname = new Array("星期日","星期一","星期二", "星期三","星期四","星期五","星期六");
+
+	    da = new Date();
+	    document.write(da.getYear(),"年");
+	    document.write(da.getMonth()+1,"月");
+	    document.write(da.getDate(),"日");
+	    document.write("&nbsp;&nbsp;");
+	    document.write(" ",dayname[da.getDay()]);
+        document.write("&nbsp;&nbsp;");
+        
+	    document.write(da.getHours(),"时");
+	    document.write(da.getMinutes(),"分");
+    //-->
+                </script>
+
+            </div>
+            <div id="pic">
+            </div>
+        </div>
+        <div id="top2">
+            <div id="left">
+                <div id="hot_view">
+                    <img src="images/daohang.jpg" /></div>
+                <div id="hot_text">
+                    <div id="meun">
+                        <ul>
+                            <li><a href="Index.aspx">留言首页</a></li>
+                            <li><a href="register.aspx">用户注册</a></li>
+                            <li><a href="releaseWord.aspx">发表留言</a></li>
+                            <li><a href="myWord.aspx">我的留言</a></li>
+                            <li><a href="LeaveWordManage.aspx">留言管理</a></li>
+                            <li><a href="logout.aspx">注销登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="logo">
+                    <img src="images/index_logo.jpg" alt="" /></div>
+            </div>
+            <div style="width: auto; height: auto">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="bottom">
+                <br />
+                欢迎光临您光临本站！！！<br />
+                版权所有©|盗版必究<br />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

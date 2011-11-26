@@ -1,0 +1,241 @@
+/* CSS Document */
+
+/******************************留言板系统设置的CSS样式一览表**********************************/
+
+/************************整体页面设置**********************************/
+body
+{
+	background: url(../images/background1.jpg);
+	width: 100%;
+	height: 100%;
+	
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 0;
+	text-align: center;
+}
+
+
+/************************头部设置**********************************/
+
+#top
+{
+	width: 761px;
+	height: 174px;
+	text-align: center;
+	background: url(../images/top_backgroup.png);
+}
+
+#top2
+{
+	width: 1000px;
+	height: 600px;
+	text-align: center;
+}
+/************************中间页面设置**********************************/
+
+#bgcolor
+{
+	background-color: #FFFFFF;
+	width: 761px;
+	text-align: center;
+	height: 390px;
+	float: left;
+}
+#left
+{
+	width: 192px;
+	float: left;
+	clear: both;
+
+}
+#hot_view
+{
+	width: 192px;
+	height: 35px;
+	margin-bottom: 5px;
+	float: left;
+}
+#hot_text
+{
+	width: 192px;
+	height: 216px;
+	font-size: 14px;
+	background: url(../images/back_meddin.jpg) repeat-y;
+	float: left;
+}
+#logo
+{
+
+	width: 192px;
+	height: 112px;
+	float: left;
+}
+
+/************************左边页面设置**********************************/
+
+a:active
+{
+	color: #990099;
+}
+a:link
+{
+	color: #0000CC;
+	text-decoration: none;
+}
+a:visited
+{
+	color: #3300FF;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #990099;
+	text-decoration: underline;
+}
+/************************页面链接设置**********************************/
+
+
+/************************右边页面设置**********************************/
+#right
+{
+	margin-left: 0px;
+	width: 58%;
+	vertical-align: bottom;
+	padding-top: 5px;
+}
+#right_view
+{
+	width: 548px;
+	height: 35px;
+}
+#right_text
+{
+	width: 548px;
+	height: 344px;
+	text-align: center;
+	background: url(../images/theme_back.jpg) no-repeat;
+}
+#right_text1
+{
+	width: 548px;
+	height: 344px;
+	text-align: center;
+	background: url(../images/themeback_01.jpg) no-repeat;
+}
+#right_text2
+{
+	width: 548px;
+	height: 344px;
+	text-align: left;
+	background: url(../images/theme_back.jpg) no-repeat;
+}
+/************************菜单按钮设置**********************************/
+
+#meun ul
+{
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 192px;
+}
+#meun li
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+	margin-bottom: 7px;
+	height: 30px;
+}
+#meun li a
+{
+	display: block;
+	height: 30px;
+	border: 1px solid #0000CC;
+	border-right: 10px solid #0066FF;
+	text-decoration: none;
+	background: url(../images/back_meun.jpg);
+	font-size: 14px;
+	font-family: "宋体-方正超大字符集";
+	line-height: 2.5em;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+#meun li a:hover
+{
+	display: block;
+	height: 30px;
+	border: 1px solid #99CC00;
+	border-right: 10px solid #99CC00;
+	text-decoration: none;
+	background: url(../images/back_meun.gif);
+	color: #99CC00;
+}
+
+/************************中间页面设置**********************************/
+
+/************************底部设置**********************************/
+
+#bottom
+{
+	width: 760px;
+	height: 112px;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+	background: url(../images/backgroup.jpg) repeat-x;
+}
+
+
+/************************时钟设置**********************************/
+
+#clock
+{
+	text-align: left;
+	font-size: 14px;
+	color: #0000CC;
+}
+
+#pic
+{
+	margin-left: 50px;
+	padding-top: 90px;
+}
+
+/************************页面滚动设置**********************************/
+#display
+{
+	position: absolute;
+	width: 548px;
+	height: 344px;
+	text-align: left;
+	z-index: 1;
+	background-color: transparent; /*背景样式为透明*/
+	scrollbar-face-color: #2F7C0C; /*滑块颜色*/
+	scrollbar-shadow-color: #FFF0AC; /*阴影颜色*/
+	scrollbar-highlight-color: #99FF00; /*高亮颜色*/
+	scrollbar-3dlight-color: #669900; /*3d光线设置*/
+	scrollbar-darkshadow-color: #99FF00; /*暗影颜色*/
+	scrollbar-track-color: #BAE07B; /*滑道颜色*/
+	scrollbar-arrow-color: #CCFF00; /*箭头颜色*/
+	overflow: scroll; /*模式为滚动的*/
+}
+
+
+/************************播放器设置**********************************/
+#style
+{
+	position: absolute;
+	width: 20px;
+	height: 36px;
+	z-index: 1;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+#pageViews
+{
+	text-align:right;
+	}

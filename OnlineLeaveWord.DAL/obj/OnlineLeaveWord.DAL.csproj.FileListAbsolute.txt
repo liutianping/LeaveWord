@@ -1,0 +1,16 @@
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.DAL.dll.config
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.DAL.dll
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.DAL.pdb
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.Model.dll
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.Model.pdb
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\obj\Debug\OnlineLeaveWord.DAL.dll
+C:\Users\Administrator\Desktop\OnlineLeaveWord\OnlineLeaveWord.DAL\obj\Debug\OnlineLeaveWord.DAL.pdb
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.DAL.dll.config
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.DAL.dll
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.DAL.pdb
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.Model.dll
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\bin\Debug\OnlineLeaveWord.Model.pdb
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\obj\Debug\OnlineLeaveWord.DAL.dll
+E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.DAL\obj\Debug\OnlineLeaveWord.DAL.pdb

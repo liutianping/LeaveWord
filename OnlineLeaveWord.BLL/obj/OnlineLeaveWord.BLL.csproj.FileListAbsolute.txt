@@ -16,3 +16,12 @@ E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLe
 E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.BLL\obj\Debug\ResolveAssemblyReference.cache
 E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.BLL\obj\Debug\OnlineLeaveWord.BLL.dll
 E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.BLL\obj\Debug\OnlineLeaveWord.BLL.pdb
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLeaveWord.BLL.dll
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLeaveWord.BLL.pdb
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLeaveWord.DAL.dll
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLeaveWord.Model.dll
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLeaveWord.Model.pdb
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\bin\Debug\OnlineLeaveWord.DAL.pdb
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\obj\Debug\OnlineLeaveWord.BLL.dll
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.BLL\obj\Debug\OnlineLeaveWord.BLL.pdb

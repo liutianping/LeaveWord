@@ -8,3 +8,8 @@ E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.Model\bin\Debug\Online
 E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.Model\obj\Debug\ResolveAssemblyReference.cache
 E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.Model\obj\Debug\OnlineLeaveWord.Model.dll
 E:\实训\OnlineLeaveWord\OnlineLeaveWord\OnlineLeaveWord.Model\obj\Debug\OnlineLeaveWord.Model.pdb
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.Model\bin\Debug\OnlineLeaveWord.Model.dll
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.Model\bin\Debug\OnlineLeaveWord.Model.pdb
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.Model\obj\Debug\OnlineLeaveWord.Model.dll
+C:\Users\Administrator\leaveWord\OnlineLeaveWord.Model\obj\Debug\OnlineLeaveWord.Model.pdb

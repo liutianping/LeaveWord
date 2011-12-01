@@ -36,9 +36,9 @@ namespace OnlineLeaveWord.Model
             get { return _date; }
             set { _date = value; }
         }
-        int _replyId;
+        int? _replyId;
 
-        public int ReplyId
+        public int? ReplyId
         {
             get { return _replyId; }
             set { _replyId = value; }

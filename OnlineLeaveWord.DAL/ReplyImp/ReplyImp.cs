@@ -86,15 +86,26 @@ namespace OnlineLeaveWord.DAL.ReplyImp
         {
 
             int result = 0;
+            string strSql="";
             connection=ConnectionService.GetInstance().GetConnection();
-            string strSql = "Insert into tb_reply (uname,content,datetime,leavewordid,ip,replyid) values(@username,@content,@datetime,@leavewordid,@ip,@replyid)";
+            parematers = new Dictionary<string, object>();
+            if (reply.ReplyId != null)
+            {
+                strSql = "Insert into tb_reply (uname,content,datetime,leavewordid,ip,replyid) values(@username,@content,@datetime,@leavewordid,@ip,@replyid)";
+                parematers.Add("@replyid",reply.ReplyId);
+            }
+                
+            else
+            {
+                strSql = "Insert into tb_reply (uname,content,datetime,leavewordid,ip) values(@username,@content,@datetime,@leavewordid,@ip)";
+            }
             parematers = new Dictionary<string, object>();
             parematers.Add("@username",reply.UserName);
             parematers.Add("@content",reply.Content);
             parematers.Add("@datetime",System.DateTime.Now.ToString());
             parematers.Add("@leavewordid",reply.LeaveWordId);
             parematers.Add("@ip",reply.Ip);
-            parematers.Add("@replyid",reply.ReplyId);
+            
 
             CreateCommand(connection, strSql);
             return cmd.ExecuteNonQuery();

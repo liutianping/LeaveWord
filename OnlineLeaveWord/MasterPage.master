@@ -144,7 +144,10 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="style">
+        <div id="style" style="left: 39px; width: 135px; top: 19px; height: 22px">
+        
+        <div id="LoginOrLogon" runat="server" style="left: 834px; width: 135px; top: -1px; height: 22px">
+        </div>
         </div>
         <div id="top" style="width: 1000px">
             <div id="clock">
@@ -168,7 +171,7 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
 
             </div>
             <div id="pic">
-            </div>
+                &nbsp;</div>
         </div>
         <div id="top2">
             <div id="left">
@@ -177,12 +180,11 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
                 <div id="hot_text">
                     <div id="meun">
                         <ul>
-                            <li><a href="Index.aspx">留言首页</a></li>
-                            <li><a href="register.aspx">用户注册</a></li>
-                            <li><a href="releaseWord.aspx">发表留言</a></li>
-                            <li><a href="myWord.aspx">我的留言</a></li>
-                            <li><a href="LeaveWordManage.aspx">留言管理</a></li>
-                            <li><a href="logout.aspx">注销登录</a></li>
+                            <li><a href="Index.aspx">我的博客</a></li>
+                            <li><a href="register.aspx">最新博客</a></li>
+                            <li><a href="releaseWord.aspx">我的留言</a></li>
+                            <li><a href="myWord.aspx">公共留言</a></li>
+                            <li><a href="LeaveWordManage.aspx">注销登录</a></li>
                         </ul>
                     </div>
                 </div>

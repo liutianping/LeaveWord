@@ -1,0 +1,31 @@
+﻿body
+{
+}
+
+#divRight
+{
+	
+	float: left; /*表示div在页面中出现在右侧，右对齐；*/
+	text-align: center; /*表示对象里的文字居中显示；*/
+	line-height:normal; 
+	width: 25%; /*表示这个对象的宽度为页面的50%；*/
+	margin-top:5px;
+}
+#divBlogMenu
+{
+	width: 100%;
+	height: auto;
+	text-align:center;
+	
+}
+#divBlogContent
+{
+	margin-top:5px;
+	float:left;
+	width:60%;
+}
+#divBlogMasterContent
+{
+	text-align:center;
+	margin-left:20%;
+	}

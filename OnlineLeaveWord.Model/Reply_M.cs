@@ -8,6 +8,14 @@ namespace OnlineLeaveWord.Model
     [Serializable]
     public class Reply_M
     {
+        int _isDelete;
+
+        public int IsDelete
+        {
+            get { return _isDelete; }
+            set { _isDelete = value; }
+        }
+
         int _id=0;
 
         public int Id

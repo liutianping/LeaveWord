@@ -1,18 +1,46 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Blogs.master.cs" Inherits="Blogs" %>
+<%@ Register Src="UserControls/UC_BlogMenu.ascx" TagName="UC_BlogMenu" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>无标题页</title>
-    <link href="style/index.css" rel="stylesheet" type="text/css" />
+    <link href="style/blog.css" rel="stylesheet" type="text/css" />
+    <link href ="style/index.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+.pro10 {padding:0 0 0 0px; margin:0; list-style:none; height:30px; position:relative;text-align:center;}
+.pro10 li {float:left; background:url(images/pro_ten_1.gif); text-align:center;}
+.pro10 li a {display:block; float:left; height:30px; line-height:29px; background:url(images/pro_ten_0.gif) no-repeat; color:#ddd; text-decoration:none; font-size:12px; font-family:宋体; font-weight:bold; text-align:center; padding:0 0 0 15px; cursor:pointer;}/*/*/
+.pro10 li a b {float:left; text-align:center; display:block; padding:0 52px 0 0; background:url(images/pro_nine_0.gif) right top;}
+.pro10 li.current a {color:#fff; background:url(images/pro_ten_2.gif);text-align:center;}
+.pro10 li.current a b {background:url(images/pro_ten_2.gif) right top;text-align:center;}
+.pro10 li a:hover {color:#fff; background:url(images/pro_ten_1.gif);text-align:center;}
+.pro10 li a:hover b {background:url(images/pro_ten_1.gif) right top;text-align:center;}
+.pro10 li.current a:hover {color:#fff; background:url(images/pro_ten_2.gif); text-align:center;}
+.pro10 li.current a:hover b {background:url(images/pro_ten_2.gif) right top;text-align:center;}
+
+</style>
 </head>
 <body>
+    <div id="divBlogMasterContent">
     <form id="form1" runat="server">
-        <div id="top">
-        </div>
-        <div id="top2">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div id="top2" style="width: 733px; height: auto; text-align: left">
+            <div id="divBlogMenu">
+                <uc1:UC_BlogMenu ID="UC_BlogMenu1" runat="server" />
+            </div>
+            <div>
+                <div id="divBlogContent" style="height: 202px; width: 70%;">
+                    <asp:ContentPlaceHolder runat="server" ID="cphBlogContent">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="divRight">
+                    <div id="divPublishTime">
+                        <asp:ContentPlaceHolder runat="server" ID="cphPublishTime">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
+    </div>
 </body>
 </html>

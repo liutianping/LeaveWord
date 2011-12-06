@@ -1,0 +1,17 @@
+body{font-size:12px;font-family:Arial,Helvetica,'ËÎÌו',sans-serif;color:#333;background:#fff;margin:0;}
+a:link{color:#0041D9;text-decoration:none;outline:none;}
+a:visited{color:#0041D9;text-decoration:none;outline:none;}
+a:hover{color:#f60;text-decoration:underline;outline:none;}
+a:active{color:#0041D9;text-decoration:none;outline:none;}
+#header{position:relative;width:761px;}
+div.bar{position:relative;height:42px;background:url(mainmenu.bg14_6x42.gif) repeat-x;}
+
+#header .tabbar div.tabs{left:50px;position:absolute;top:5px;font-size:14px;font-weight:bold;}
+#header .tabbar .tabs a{float:left;width:80px;height:6px;line-height:12px;padding-top:7px;text-align:center;color:#000;font-weight:lighter;font-size:14px;background:transparent;}
+#header .tabbar .tabs a:hover{background:#fff url(nav_hover_80x31.gif) no-repeat;text-decoration:none;margin-left:-1px;padding-left:1px;}
+#header .tabbar .tabs a.actived{background:#fff url(nav_80x31.gif) no-repeat;font-weight:bold;color:#fff;margin-left:-1px;padding-left:1px;}
+#header .tabbar .tabs a.actived:hover{background:#fff url(nav_80x31.gif) no-repeat;font-weight:bold;color:#fff;text-decoration:underline;}
+#header .tabbar .float_icon{background:transparent url(new01_18x19.gif) no-repeat;font-size:0;height:19px;line-height:0;position:absolute;right:403px;text-indent:-999px;top:-4px;width:18px;}
+#header{z-index:20;min-width:761px;}
+#header div.banner{position:relative;height:25px;z-index:10;}
+div.bar{height:7px;background:url(mainmenu.bg11_6x7.gif) repeat-x;}

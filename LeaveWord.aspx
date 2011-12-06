@@ -9,7 +9,7 @@
 <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
 </div>
     <div style="width: auto; height: auto; text-align: left;">
-        留言内容:</div>
+        留言内容:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></div>
     <div style="width: auto; height: auto; text-align: left;">
        
    <DNTB:WebEditor id="txtLeaveContent" runat="server"></DNTB:WebEditor> 

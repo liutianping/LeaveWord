@@ -14,7 +14,7 @@ namespace OnlineLeaveWord.BLL.ReplyImpl
             throw new Exception("The method or operation is not implemented.");
         }
 
-        public IList<OnlineLeaveWord.Model.Reply_M> GetReply(OnlineLeaveWord.Model.LeaveWord_M lw)
+        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByLeaveWordId(OnlineLeaveWord.Model.LeaveWord_M lw)
         {
             reply = new OnlineLeaveWord.DAL.ReplyImp.ReplyImp();
             return reply.GetReplyByLeaveWordId(lw);
@@ -40,6 +40,28 @@ namespace OnlineLeaveWord.BLL.ReplyImpl
         {
             reply = new OnlineLeaveWord.DAL.ReplyImp.ReplyImp();
             return reply.GetReplyCountByLeaveWordId(lw);
+        }
+
+        #endregion
+
+        #region IReply 成员
+
+
+        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByUserName(OnlineLeaveWord.Model.UserInfo_M u)
+        {
+            reply = new OnlineLeaveWord.DAL.ReplyImp.ReplyImp();
+            return reply.GetReplyByUserName(u);
+        }
+
+        #endregion
+
+        #region IReply 成员
+
+
+        public int DeleteReply(int replyId)
+        {
+            reply = new OnlineLeaveWord.DAL.ReplyImp.ReplyImp();
+            return reply.DeleteReply(replyId);
         }
 
         #endregion

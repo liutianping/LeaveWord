@@ -113,5 +113,38 @@ namespace OnlineLeaveWord.DAL.ReplyImp
         }
 
         #endregion
+
+        #region IReply 成员
+
+        /// <summary>
+        /// 根据用户名来获取此用户的所有Reply
+        /// </summary>
+        /// <param name="u">要查询的用户</param>
+        /// <returns></returns>
+        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByUserName(OnlineLeaveWord.Model.UserInfo_M u)
+        {
+            string strSql = "Select * from tb_reply where uName=@username";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@username", u.UID);
+            CreateCommand(connection, strSql);
+            return GetReplyList(cmd.ExecuteReader());
+        }
+
+        #endregion
+
+        #region IReply 成员
+
+
+        public int DeleteReply(int replyId)
+        {
+            string strSql = "update tb_reply set content=@content,isDelete=1 where id=@id";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@content","此回复已经被删除！");
+            parematers.Add("@id",replyId);
+            CreateCommand(connection, strSql);
+            return cmd.ExecuteNonQuery();
+        }
+
+        #endregion
     }
 }

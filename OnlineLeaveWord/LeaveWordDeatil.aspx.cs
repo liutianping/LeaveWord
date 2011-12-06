@@ -31,7 +31,7 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
                 lrContent.Text = lw.Content;
             }
             reply = new OnlineLeaveWord.BLL.ReplyImpl.ReplyImp();
-            List<OnlineLeaveWord.Model.Reply_M> replyList = (List<OnlineLeaveWord.Model.Reply_M>)reply.GetReply(lw);
+            List<OnlineLeaveWord.Model.Reply_M> replyList = (List<OnlineLeaveWord.Model.Reply_M>)reply.GetReplyByLeaveWordId(lw);
             replyList.Sort(OnlineLeaveWord.Model.Reply_M.GetComparer());	// 倒序排列
             ViewState["List"] = replyList;					// 设置ViewState
             ltPageViews.Text = "";
@@ -67,7 +67,7 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
                 Reply_M find = list.Find(new Predicate<Reply_M>(cmt.MatchRule));
                 if (null != find)
                     quoteList.Add(find);
-                // 递归调用，只要CommentId不为零，就加入到引用评论列表
+                
                 AddComment(list, quoteList, find);
             }
             else

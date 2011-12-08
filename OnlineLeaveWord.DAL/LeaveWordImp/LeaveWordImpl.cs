@@ -50,7 +50,9 @@ namespace OnlineLeaveWord.DAL.LeaveWordImp
             parematers.Add("@uid", u.Id);
             cn = ConnectionService.GetInstance().GetConnection();
             
-            return GetLeaveList(CreateCommand(cn, strSql,parematers).ExecuteReader());
+            IList<LeaveWord_M> result= GetLeaveList(CreateCommand(cn, strSql,parematers).ExecuteReader());
+            CloseConnection();
+            return result;
         }
 
         public int InsertMyWord(OnlineLeaveWord.Model.LeaveWord_M m)
@@ -110,6 +112,7 @@ namespace OnlineLeaveWord.DAL.LeaveWordImp
             }
             catch (Exception)
             {
+                //TODO 记录日志，关闭连接失败
             }
             return result;
         }
@@ -126,11 +129,27 @@ namespace OnlineLeaveWord.DAL.LeaveWordImp
             parematers.Add("@id", leaveWordId);
             cmd = CreateCommand(cn, strSql, parematers);
             result= GetLeaveList(cmd.ExecuteReader());
+            CloseConnection();
             if (0 != result.Count)
                 return result[0];
             return null;
         }
 
         #endregion
+
+        private void CloseConnection()
+        {
+            if (cn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    cn.Close();
+                }
+                catch (Exception)
+                {
+                    //TODO 记录日志  关闭连接失败。位置：BlogCategoryinterfaceImpl 79行                    Cate
+                }
+            }
+        }
     }
 }

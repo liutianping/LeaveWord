@@ -21,8 +21,8 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
        
             int articleID = 0;
             leaveWord = new OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord();
-            articleID = int.Parse(Request.QueryString["articleid"].ToString());
-            //articleID = 25;
+            //articleID = int.Parse(Request.QueryString["articleid"].ToString());
+            articleID = 25;
             LeaveWord_M lw = leaveWord.GetLeaveDetail(articleID);
             if (lw != null)
             {

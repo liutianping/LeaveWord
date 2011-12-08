@@ -6,26 +6,25 @@
 
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
-            <td style="width: 181px">
+            <td style="width: 114px; text-align: center;">
                 留言主题：
             </td>
             <td>
-                <asp:Label runat="server" ID="lblTitle" ForeColor="White"></asp:Label>
+                <asp:Label runat="server" ID="lblTitle"></asp:Label>
                 <span class="pageViews">
                     <asp:Literal ID="ltPageViews" runat="server"></asp:Literal></span>
             </td>
         </tr>
         <tr>
-            <td style="width: 181px">
+            <td style="width: 114px; text-align: center;">
                 留言内容：
             </td>
             <td>
                 <asp:Literal ID="lrContent" runat="server"></asp:Literal></td>
         </tr>
         <tr>
-            <td style="width: 181px; vertical-align: top;">
-                回复列表:
-            </td>
+            <td style="width: 114px; vertical-align: top; text-align: center;">
+                留言回复：</td>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="lblStatus" Visible="false"></asp:Label>
                 <div id="divScroll" runat="server">
@@ -40,7 +39,7 @@
             </td>
         </tr>
         <tr>
-        <td style="vertical-align:text-top">
+        <td style="vertical-align:text-top; width: 114px; text-align: center;">
             发表留言:
         </td>
         <td>

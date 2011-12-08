@@ -8,7 +8,7 @@ namespace OnlineLeaveWord.DAL.UserImp
 {
     public class UserOperationationImp : OnlineLeaveWord.DAL.IUser.IUserOperation
     {
-        SqlConnection connection = null;
+        SqlConnection cn = null;
         SqlCommand cmd = null;
         Dictionary<string, object> parematers = null;
         #region IUserOperation 成员
@@ -16,20 +16,20 @@ namespace OnlineLeaveWord.DAL.UserImp
         public int CheckLogin(UserInfo_M userInfo)
         {
             string sql = "SELECT COUNT(*) FROM tb_User WHERE Uid=@uid AND Pwd = @password";
-            cmd = new SqlCommand(sql, connection);
+            cmd = new SqlCommand(sql, cn);
             parematers=new Dictionary<string,object>();
             parematers.Add("@uid",userInfo.UID);
             parematers.Add("@password", userInfo.Password);
-            CreateCommand(connection, sql);
+            CreateCommand(cn, sql);
             int count = int.Parse(cmd.ExecuteScalar().ToString());
-            connection.Close();
+            cn.Close();
             return count;
         }
 
         public int AddUser(UserInfo_M userInfo)
         {
             string sql = "INSERT INTO tb_User VALUES('@uid','@pwd','@sex','@website','@email','@qq','@ip','@popedom')";
-            cmd = new SqlCommand(sql, connection);
+            cmd = new SqlCommand(sql, cn);
             parematers = new Dictionary<string, object>();
             parematers.Add("@uid", userInfo.UID);
             parematers.Add("@password", userInfo.Password);
@@ -39,9 +39,9 @@ namespace OnlineLeaveWord.DAL.UserImp
             parematers.Add("@qq",userInfo.Qq);
             parematers.Add("@ip",userInfo.Ip);
             parematers.Add("@popedom",userInfo.Popedom);
-            CreateCommand(connection, sql);
+            CreateCommand(cn, sql);
             int count = int.Parse(cmd.ExecuteScalar().ToString());
-            connection.Close();
+            cn.Close();
             return count;
         }
  
@@ -59,7 +59,20 @@ namespace OnlineLeaveWord.DAL.UserImp
                 }
             }
         }
-
+        private void CloseConnection()
+        {
+            if (cn.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    cn.Close();
+                }
+                catch (Exception)
+                {
+                    //TODO 记录日志  关闭连接失败。位置：BlogCategoryinterfaceImpl 79行                    Cate
+                }
+            }
+        }
        
     }
 }

@@ -19,7 +19,9 @@ namespace OnlineLeaveWord.DAL.ReplyImp
             
             parematers.Add("@id",lw.Id);
             CreateCommand(connection,strSql);
-            return GetReplyList(cmd.ExecuteReader());
+            IList<OnlineLeaveWord.Model.Reply_M> result = GetReplyList(cmd.ExecuteReader());
+            CloseConnection();
+            return result;
         }
 
         public int GetReplyCountByLeaveWordId(OnlineLeaveWord.Model.LeaveWord_M lw)
@@ -30,7 +32,9 @@ namespace OnlineLeaveWord.DAL.ReplyImp
                 parematers = new Dictionary<string, object>();
                 parematers.Add("@id",lw.Id);
                 CreateCommand(ConnectionService.GetInstance().GetConnection(), strSql);
-                return int.Parse(cmd.ExecuteScalar().ToString());
+                int result = int.Parse(cmd.ExecuteScalar().ToString());
+                CloseConnection();
+                return result;
             }
             return 0;
         }
@@ -108,7 +112,9 @@ namespace OnlineLeaveWord.DAL.ReplyImp
             
 
             CreateCommand(connection, strSql);
-            return cmd.ExecuteNonQuery();
+            int resultInt = cmd.ExecuteNonQuery();
+            CloseConnection();
+            return resultInt;
             
         }
 
@@ -127,7 +133,10 @@ namespace OnlineLeaveWord.DAL.ReplyImp
             parematers = new Dictionary<string, object>();
             parematers.Add("@username", u.UID);
             CreateCommand(connection, strSql);
-            return GetReplyList(cmd.ExecuteReader());
+            IList<OnlineLeaveWord.Model.Reply_M> result = new List<OnlineLeaveWord.Model.Reply_M>();
+            result = GetReplyList(cmd.ExecuteReader());
+            CloseConnection();
+            return result;
         }
 
         #endregion
@@ -142,9 +151,26 @@ namespace OnlineLeaveWord.DAL.ReplyImp
             parematers.Add("@content","此回复已经被删除！");
             parematers.Add("@id",replyId);
             CreateCommand(connection, strSql);
-            return cmd.ExecuteNonQuery();
+            int result = cmd.ExecuteNonQuery();
+            CloseConnection();
+            return result;
         }
 
         #endregion
+
+        private void CloseConnection()
+        {
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    connection.Close();
+                }
+                catch (Exception)
+                {
+                    //TODO 记录日志  关闭连接失败。位置：BlogCategoryinterfaceImpl 79行                    Cate
+                }
+            }
+        }
     }
 }

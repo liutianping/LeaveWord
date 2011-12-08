@@ -33,6 +33,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blog\BlogInterfaceImpl\BlogCategoryImpl.cs" />
+    <Compile Include="Blog\BlogInterface\IBlogCategoryOperation.cs" />
     <Compile Include="ILeaveWord\ILeave.cs" />
     <Compile Include="IReply\IReply.cs" />
     <Compile Include="IUser\ILogin.cs" />

@@ -143,11 +143,13 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
 
 </head>
 <body>
+    <div id="divState">
+        abc abc abc</div>
     <form id="form1" runat="server">
         <div id="style" style="left: 39px; width: 135px; top: 19px; height: 22px">
-        
-        <div id="LoginOrLogon" runat="server" style="left: 834px; width: 135px; top: -1px; height: 22px">
-        </div>
+            <div id="LoginOrLogon" runat="server" style="left: 834px; width: 135px; top: -1px;
+                height: 22px">
+            </div>
         </div>
         <div id="top" style="width: 1000px">
             <div id="clock">
@@ -191,14 +193,9 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
                 <div id="logo">
                     <img src="images/index_logo.jpg" alt="" /></div>
             </div>
-            <div style="width: auto; height: auto">
+            <div id="divContentPlaceHolder">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
-            </div>
-            <div id="bottom">
-                <br />
-                欢迎光临您光临本站！！！<br />
-                版权所有©|盗版必究<br />
             </div>
         </div>
     </form>

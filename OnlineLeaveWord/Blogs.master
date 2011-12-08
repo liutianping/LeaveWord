@@ -21,6 +21,7 @@
 </style>
 </head>
 <body>
+    <div id="divState">登录 注销 退出</div>
     <div id="divBlogMasterContent">
     <form id="form1" runat="server">
         <div id="top2" style="width: 733px; height: auto; text-align: left">
@@ -30,6 +31,7 @@
             <div>
                 <div id="divBlogContent" style="height: 202px; width: 70%;">
                     <asp:ContentPlaceHolder runat="server" ID="cphBlogContent">
+                    
                     </asp:ContentPlaceHolder>
                 </div>
                 <div id="divRight">

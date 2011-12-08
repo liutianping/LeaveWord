@@ -34,6 +34,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blog\BlogInterface\IBlogCategoryOperation.cs" />
+    <Compile Include="Blog\BlogImpl\BlogCategoryInterfaceImpl.cs" />
     <Compile Include="CommandService.cs" />
     <Compile Include="ConnectionService.cs" />
     <Compile Include="ILeaveWord\ILeaveWord.cs" />

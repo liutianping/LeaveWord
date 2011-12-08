@@ -6,7 +6,7 @@
 body
 {
 	background: url(../images/background1.jpg);
-	width: 100%;
+	width: 96%;
 	height: 100%;
 	text-align: center;
 }
@@ -24,7 +24,7 @@ body
 
 #top2
 {
-	width: 691px;
+	width: auto;
 	height: 543px;
 	text-align: left;
 }
@@ -287,4 +287,10 @@ border:1px solid #0058a3;
 
 padding-top:4px; padding-bottom:4px; 
 padding-left:10px; padding-right:10px; 
+}
+#divState
+{
+	right: 0;
+	top: 0;
+	position:fixed;
 }

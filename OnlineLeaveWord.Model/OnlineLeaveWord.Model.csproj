@@ -33,6 +33,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogCategory.cs" />
     <Compile Include="LeaveWord_M.cs" />
     <Compile Include="Log_M.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

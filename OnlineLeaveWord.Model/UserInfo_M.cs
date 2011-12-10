@@ -27,9 +27,9 @@ namespace OnlineLeaveWord.Model
             get { return _password; }
             set { _password = value; }
         }
-        char _sex;
+        string _sex;
 
-        public char Sex
+        public string Sex
         {
             get { return _sex; }
             set { _sex = value; }

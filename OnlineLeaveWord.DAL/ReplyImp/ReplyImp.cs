@@ -31,7 +31,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
                 string strSql = "SELECT COUNT(ID) FROM TB_Reply where LeaveWordID=@id";
                 parematers = new Dictionary<string, object>();
                 parematers.Add("@id",lw.Id);
-                CreateCommand(ConnectionService.GetInstance().GetConnection(), strSql);
+                CreateCommand(connection, strSql);
                 int result = int.Parse(cmd.ExecuteScalar().ToString());
                 CloseConnection();
                 return result;
@@ -40,10 +40,10 @@ namespace OnlineLeaveWord.DAL.ReplyImp
         }
 
         #endregion
-        private void CreateCommand(SqlConnection cn, string strSql)
+        private void CreateCommand(SqlConnection cn2, string strSql)
         {
-            cn = ConnectionService.GetInstance().GetConnection();
-            cmd = new SqlCommand(strSql, cn);
+            connection = ConnectionService.GetInstance().GetConnection();
+            cmd = new SqlCommand(strSql, connection);
             if (null != parematers)
             {
                 foreach (string key in parematers.Keys)
@@ -160,6 +160,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
 
         private void CloseConnection()
         {
+
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 try

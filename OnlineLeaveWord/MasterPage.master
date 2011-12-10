@@ -144,7 +144,8 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
 </head>
 <body>
     <div id="divState">
-        abc abc abc</div>
+       <%= GetLoginState() %>
+       </div>
     <form id="form1" runat="server">
         <div id="style" style="left: 39px; width: 135px; top: 19px; height: 22px">
             <div id="LoginOrLogon" runat="server" style="left: 834px; width: 135px; top: -1px;

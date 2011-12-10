@@ -18,15 +18,15 @@ public partial class UserControls_UC_Login : System.Web.UI.UserControl
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        string s = Request.UserHostAddress;
-        Response.Write(s);
-
         UserInfo_M userInfo = new UserInfo_M();
         OnlineLeaveWord.BLL.Login login = new OnlineLeaveWord.BLL.Login();
         userInfo.Password = txtPassword.Text.Trim();
         userInfo.UID = txtUserName.Text.Trim();
         if (login.IsLogin(userInfo))
-            Response.Write("<script>alert('登录成功！！！！！！！')</script>");
+        {
+            Session["username"] = userInfo.UID;
+            Response.Write("<script>alert('登录成功！！！！！！！');location.href='ShareLeaveWordList.aspx'</script>");
+        }
         else
             Response.Write("<script>alert('登录失败！！！！！！！')</script>");
 

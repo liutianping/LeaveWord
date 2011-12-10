@@ -22,7 +22,7 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
             int articleID = 0;
             leaveWord = new OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord();
             //articleID = int.Parse(Request.QueryString["articleid"].ToString());
-            articleID = 25;
+            articleID = 23;
             LeaveWord_M lw = leaveWord.GetLeaveDetail(articleID);
             if (lw != null)
             {
@@ -34,7 +34,6 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
             List<OnlineLeaveWord.Model.Reply_M> replyList = (List<OnlineLeaveWord.Model.Reply_M>)reply.GetReplyByLeaveWordId(lw);
             replyList.Sort(OnlineLeaveWord.Model.Reply_M.GetComparer());	// 倒序排列
             ViewState["List"] = replyList;					// 设置ViewState
-            ltPageViews.Text = "";
             if (replyList.Count != 0)
             {
                 rpComment.DataSource = replyList;

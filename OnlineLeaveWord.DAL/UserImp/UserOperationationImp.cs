@@ -28,11 +28,11 @@ namespace OnlineLeaveWord.DAL.UserImp
 
         public int AddUser(UserInfo_M userInfo)
         {
-            string sql = "INSERT INTO tb_User VALUES('@uid','@pwd','@sex','@website','@email','@qq','@ip','@popedom')";
-            cmd = new SqlCommand(sql, cn);
+            string sql = "INSERT INTO tb_User VALUES(@uid,@pwd,@sex,@website,@email,@qq,@ip,@popedom)";
+           
             parematers = new Dictionary<string, object>();
             parematers.Add("@uid", userInfo.UID);
-            parematers.Add("@password", userInfo.Password);
+            parematers.Add("@pwd", userInfo.Password);
             parematers.Add("@sex",userInfo.Sex);
             parematers.Add("@website",userInfo.WebSite);
             parematers.Add("@email",userInfo.Email);
@@ -40,13 +40,24 @@ namespace OnlineLeaveWord.DAL.UserImp
             parematers.Add("@ip",userInfo.Ip);
             parematers.Add("@popedom",userInfo.Popedom);
             CreateCommand(cn, sql);
-            int count = int.Parse(cmd.ExecuteScalar().ToString());
-            cn.Close();
+            int count = 0;
+            try
+            {
+                count = cmd.ExecuteNonQuery();
+                if(null!=cn && cn.State==System.Data.ConnectionState.Open)
+                cn.Close();
+            }
+            catch (Exception)
+            {
+                //TODO ”√ªß≤Â»Î ß∞‹
+                throw;
+            }
+            
             return count;
         }
  
         #endregion
-        private void CreateCommand(SqlConnection cn, string strSql)
+        private void CreateCommand(SqlConnection cn2, string strSql)
         {
             cn = ConnectionService.GetInstance().GetConnection();
             cmd = new SqlCommand(strSql, cn);

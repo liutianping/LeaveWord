@@ -1,13 +1,15 @@
-<%@ Page language="c#" AutoEventWireup="true" CodePage="936"%>
+<%@ Page Language="c#" AutoEventWireup="true" CodePage="936" %>
+
 <%@ Import Namespace="DotNetTextBox" %>
 <html>
 <head>
-<title>calculator</title>
-<meta http-equiv="Pragma" content="no-cache">
-<base target="_self" />
-<meta http-equiv="Content-Language" content="zh-cn">
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<script language="JavaScript">
+    <title>calculator</title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <base target="_self" />
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+    <script language="JavaScript">
 function computetoedit(obj) 
 {
 return eval(obj.expr.value)
@@ -93,8 +95,9 @@ obj.expr.value = "0";
 FlagNewNum = true;
 }
    
-</script>
-<style type="text/css">
+    </script>
+
+    <style type="text/css">
 }
 <!--
 input {
@@ -103,60 +106,70 @@ input {
 </style>
 </head>
 <body bgcolor="#f9f8f7">
-<form name="calc">
-  <table width="152" border="1px" align="center" bordercolor="#efefef"><tr>
-    <td colspan=4 width="202" bgcolor="#000000"><input type="text" name="expr" value="0" size=14  style="background-color: #000000; font-size: 18pt; color: #FFFF00; border: 1px inset #000000"> <tr>
-
-<td width="37" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 7 " onClick="enter(this.form, seven)">
-
-<td width="50" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 8 " onClick="enter(this.form, eight)">
-
-<td width="47" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 9 " onClick="enter(this.form, nine)">
-
-<td bgcolor="#C0C0C0" style="width: 50px">
-  <p align="center"><input type="button" value=" / " onClick="enter(this.form, divide)">
-
-<tr><td width="37" bgcolor="#C0C0C0">
-    <p align="center"><input type="button" value=" 4 " onClick="enter(this.form, four)">
-
-<td width="50" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 5 " onClick="enter(this.form, five)">
-
-<td width="47" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 6 " onClick="enter(this.form, six)">
-
-<td bgcolor="#C0C0C0" style="width: 50px">
-  <p align="center"><input type="button" value=" * " onClick="enter(this.form, multiply)">
-
-<tr><td width="37" bgcolor="#C0C0C0">
-    <p align="center"><input type="button" value=" 1 " onClick="enter(this.form, one)">
-
-<td width="50" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 2 " onClick="enter(this.form, two)">
-
-<td width="47" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" 3 " onClick="enter(this.form, three)">
-
-<td bgcolor="#C0C0C0" style="width: 50px">
-  <p align="center"><input type="button" value=" - " onClick="enter(this.form, minus)">
-
-<tr><td width="37" bgcolor="#C0C0C0">
-    <p align="center"><input type="button" value=" . " onClick="Decimal(this.form)" id="Button1">
-
-  <td width="50" bgcolor="#C0C0C0">
-    <p align="center"><input type="button" value=" 0 " onClick="enter(this.form, zero)">
-
-<td width="47" bgcolor="#C0C0C0">
-  <p align="center"><input type="button" value=" AC" onClick="clearc(this.form)"> 
-
-<td bgcolor="#C0C0C0" style="width: 50px">
-  <p align="center"><input type="button" value=" + " onClick="enter(this.form, plus)">
-
-<tr><td colspan=4 width="196" bgcolor="#C0C0C0"><input type="button" value="  =  " onClick="compute(this.form)"><input type="button" value=<%=ResourceManager.GetString("insertcalculator")%> onClick='insertCount(computetoedit(this.form));' LANGUAGE=javascript><input onclick="parent.popupmenu.hide();" type="button" value='<%=ResourceManager.GetString("close")%>' />
-</table>
-</form>
+    <form name="calc">
+        <table width="152" border="1px" align="center" bordercolor="#efefef">
+            <tr>
+                <td colspan="4" width="202" bgcolor="#000000">
+                    <input type="text" name="expr" value="0" size="14" style="background-color: #000000;
+                        font-size: 18pt; color: #FFFF00; border: 1px inset #000000">
+                    <tr>
+                        <td width="37" bgcolor="#C0C0C0">
+                            <p align="center">
+                                <input type="button" value=" 7 " onclick="enter(this.form, seven)">
+                                <td width="50" bgcolor="#C0C0C0">
+                                    <p align="center">
+                                        <input type="button" value=" 8 " onclick="enter(this.form, eight)">
+                                        <td width="47" bgcolor="#C0C0C0">
+                                            <p align="center">
+                                                <input type="button" value=" 9 " onclick="enter(this.form, nine)">
+                                                <td bgcolor="#C0C0C0" style="width: 50px">
+                                                    <p align="center">
+                                                        <input type="button" value=" / " onclick="enter(this.form, divide)">
+                                                        <tr>
+                                                            <td width="37" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <input type="button" value=" 4 " onclick="enter(this.form, four)">
+                                                                    <td width="50" bgcolor="#C0C0C0">
+                                                                        <p align="center">
+                                                                            <input type="button" value=" 5 " onclick="enter(this.form, five)">
+                                                                            <td width="47" bgcolor="#C0C0C0">
+                                                                                <p align="center">
+                                                                                    <input type="button" value=" 6 " onclick="enter(this.form, six)">
+                                                                                    <td bgcolor="#C0C0C0" style="width: 50px">
+                                                                                        <p align="center">
+                                                                                            <input type="button" value=" * " onclick="enter(this.form, multiply)">
+                                                                                            <tr>
+                                                                                                <td width="37" bgcolor="#C0C0C0">
+                                                                                                    <p align="center">
+                                                                                                        <input type="button" value=" 1 " onclick="enter(this.form, one)">
+                                                                                                        <td width="50" bgcolor="#C0C0C0">
+                                                                                                            <p align="center">
+                                                                                                                <input type="button" value=" 2 " onclick="enter(this.form, two)">
+                                                                                                                <td width="47" bgcolor="#C0C0C0">
+                                                                                                                    <p align="center">
+                                                                                                                        <input type="button" value=" 3 " onclick="enter(this.form, three)">
+                                                                                                                        <td bgcolor="#C0C0C0" style="width: 50px">
+                                                                                                                            <p align="center">
+                                                                                                                                <input type="button" value=" - " onclick="enter(this.form, minus)">
+                                                                                                                                <tr>
+                                                                                                                                    <td width="37" bgcolor="#C0C0C0">
+                                                                                                                                        <p align="center">
+                                                                                                                                            <input type="button" value=" . " onclick="Decimal(this.form)" id="Button1">
+                                                                                                                                            <td width="50" bgcolor="#C0C0C0">
+                                                                                                                                                <p align="center">
+                                                                                                                                                    <input type="button" value=" 0 " onclick="enter(this.form, zero)">
+                                                                                                                                                    <td width="47" bgcolor="#C0C0C0">
+                                                                                                                                                        <p align="center">
+                                                                                                                                                            <input type="button" value=" AC" onclick="clearc(this.form)">
+                                                                                                                                                            <td bgcolor="#C0C0C0" style="width: 50px">
+                                                                                                                                                                <p align="center">
+                                                                                                                                                                    <input type="button" value=" + " onclick="enter(this.form, plus)">
+                                                                                                                                                                    <tr>
+                                                                                                                                                                        <td colspan="4" width="196" bgcolor="#C0C0C0">
+                                                                                                                                                                            <input type="button" value="  =  " onclick="compute(this.form)"><input type="button"
+                                                                                                                                                                                value='<%=ResourceManager.GetString("insertcalculator")%>' onclick='insertCount(computetoedit(this.form));'
+                                                                                                                                                                                language="javascript"><input onclick="parent.popupmenu.hide();" type="button" value='<%=ResourceManager.GetString("close")%>' />
+        </table>
+    </form>
 </body>
 </html>

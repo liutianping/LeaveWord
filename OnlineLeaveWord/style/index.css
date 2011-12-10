@@ -11,11 +11,15 @@ body
 	text-align: center;
 }
 
-
+#divLeft
+{
+	text-align:left
+	}
 /************************Õ∑≤ø…Ë÷√**********************************/
 
 #top
 {
+	
 	width: 761px;
 	height: 174px;
 	text-align: center;
@@ -24,7 +28,7 @@ body
 
 #top2
 {
-	width: auto;
+	width: 1000px;
 	height: 543px;
 	text-align: left;
 }
@@ -260,7 +264,10 @@ a:hover
 	width:auto;
 	font:#ffffff
 	}
-	
+	#divContentPlaceHolder
+{
+	width : 800px;
+	}
 #alignCenter
 {
 	text-align:center;

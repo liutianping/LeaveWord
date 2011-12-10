@@ -7,7 +7,7 @@
     <title>上传功能高级设置</title>
     <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <base target="_self" />
-    <script runat=server language="C#">
+    <script runat="server" language="C#">
         DotNetTextBox.doctextboxdb boxdb, _db;
 
         protected void Page_Load(object sender, EventArgs e)

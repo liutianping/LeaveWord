@@ -9,14 +9,14 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 {
     public class BlogCategoryInterfaceImpl : OnlineLeaveWord.DAL.Blog.BlogInterface.IBlogCategoryOperation
     {
-        SqlConnection cn;
+        SqlConnection cn = null;
         SqlCommand cmd;
         Dictionary<string, object> parematers;
         #region IBlogCategoryOperation 成员
 
         public int BlogCategorySave(OnlineLeaveWord.Model.BlogCategory bc)
         {
-            string strSql="";
+            string strSql = "";
             parematers = new Dictionary<string, object>();
             if (bc.Id != 0) //更新操作
             {
@@ -27,10 +27,10 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             {
                 strSql = "Insert into tb_category values(@categoryname , @uid , @publishtime , @isdelete)";
             }
-            parematers.Add("@categoryname",bc.CategoryName);
+            parematers.Add("@categoryname", bc.CategoryName);
             parematers.Add("@uid", bc.UId);
-            parematers.Add("@publishtime" , bc.PublishTime);
-            parematers.Add("isdelete" , bc.IsDelte);
+            parematers.Add("@publishtime", bc.PublishTime);
+            parematers.Add("isdelete", bc.IsDelte);
 
             CreateCommand(cn, strSql);
             CloseConnection();
@@ -62,7 +62,8 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             else //彻底删除
             {
                 strSql = "delete from tb_category where id =@id";
-                CreateCommand(cn,strSql);
+                parematers.Clear();
+                CreateCommand(cn, strSql);
                 int result = cmd.ExecuteNonQuery();
                 CloseConnection();
                 return result;
@@ -73,8 +74,10 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
         {
             List<BlogCategory> result = new List<BlogCategory>();
             string strSql = "select * from tb_category where uid = @uid";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@uid", u.UID);
             CreateCommand(cn, strSql);
-            result = GetBlogCategoryByDateReader(cmd.ExecuteReader(),1);//1 是标志位，没有任何用处。
+            result = GetBlogCategoryByDateReader(cmd.ExecuteReader(), 1);//1 是标志位，没有任何用处。
             CloseConnection();
             return result;
         }
@@ -113,10 +116,10 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             return result;
         }
 
-        private List<BlogCategory> GetBlogCategoryByDateReader(SqlDataReader dr,int i)
+        private List<BlogCategory> GetBlogCategoryByDateReader(SqlDataReader dr, int i)
         {
             List<BlogCategory> listResult = new List<BlogCategory>();
-            
+
             while (dr.Read())
             {
                 BlogCategory result = new BlogCategory();
@@ -137,15 +140,18 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 
         private void CloseConnection()
         {
-            if (cn.State == System.Data.ConnectionState.Open)
+            if (cn != null)
             {
-                try
+                if (cn.State == System.Data.ConnectionState.Open)
                 {
-                    cn.Close();
-                }
-                catch (Exception)
-                {
-                    //TODO 记录日志  关闭连接失败。位置：BlogCategoryinterfaceImpl 79行                    Cate
+                    try
+                    {
+                        cn.Close();
+                    }
+                    catch (Exception)
+                    {
+                        //TODO 记录日志  关闭连接失败。位置：BlogCategoryinterfaceImpl 79行                    Cate
+                    }
                 }
             }
         }
@@ -159,9 +165,9 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             BlogCategory result = new BlogCategory();
             string strSql = "select * from tb_category where id = @id";
             parematers = new Dictionary<string, object>();
-            parematers.Add("@id" , bcId);
+            parematers.Add("@id", bcId);
             CreateCommand(cn, strSql);
-            result =GetBlogCategoryByDateReader(cmd.ExecuteReader());
+            result = GetBlogCategoryByDateReader(cmd.ExecuteReader());
             CloseConnection();
             return result;
         }
@@ -174,8 +180,8 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
         public int ReturnCategory(int bcId)
         {
             string strSql = "update tb_category set isDelete=0 where id = @id";
-            parematers.Add("@id" ,bcId);
-            CreateCommand(cn,strSql);
+            parematers.Add("@id", bcId);
+            CreateCommand(cn, strSql);
             int result = cmd.ExecuteNonQuery();
             CloseConnection();
             return result;

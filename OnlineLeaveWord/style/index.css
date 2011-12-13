@@ -30,8 +30,15 @@ body
 {
 	width: 1000px;
 	height: 543px;
+	text-align: center;
+}
+#top3
+{
+	width: 950px;
+	height: auto;
 	text-align: left;
 }
+
 /************************中间页面设置**********************************/
 
 #bgcolor

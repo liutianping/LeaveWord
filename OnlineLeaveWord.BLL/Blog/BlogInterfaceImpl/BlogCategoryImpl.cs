@@ -42,5 +42,16 @@ namespace OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl
         }
 
         #endregion
+
+        #region IBlogCategoryOperation ≥…‘±
+
+
+        public List<BlogCategory> GetBlogCategoryListByUser(UserInfo_M u, int flag)
+        {
+            bcOperation = new OnlineLeaveWord.DAL.Blog.BlogImpl.BlogCategoryInterfaceImpl();
+            return bcOperation.GetBlogCategoryListByUser(u,flag);
+        }
+
+        #endregion
     }
 }

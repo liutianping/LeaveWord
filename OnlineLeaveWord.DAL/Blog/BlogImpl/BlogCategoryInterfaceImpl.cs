@@ -20,7 +20,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers = new Dictionary<string, object>();
             if (bc.Id != 0) //更新操作
             {
-                strSql = "update tb_category set categoryName=@categoryname , uId= @uid , publishTime=@publishtime , @isDetele=@isdelete where id = @id";
+                strSql = "update tb_category set categoryName=@categoryname , uId= @uid , publishTime=@publishtime , isdelete=@isdelete where id = @id";
                 parematers.Add("@id", bc.Id);
             }
             else //插入操作
@@ -30,11 +30,13 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers.Add("@categoryname", bc.CategoryName);
             parematers.Add("@uid", bc.UId);
             parematers.Add("@publishtime", bc.PublishTime);
-            parematers.Add("isdelete", bc.IsDelte);
+            parematers.Add("@isdelete", bc.IsDelte);
 
             CreateCommand(cn, strSql);
+            
+            int result = cmd.ExecuteNonQuery();
             CloseConnection();
-            return cmd.ExecuteNonQuery();
+            return result;
         }
 
         public int BlogCategoryDelete(int bcId)
@@ -44,19 +46,19 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers.Add("id", bcId);
             string strSql = "select isdelete from tb_category where id=@id";
             CreateCommand(cn, strSql);
-            char state = char.Parse(cmd.ExecuteScalar().ToString());
-            if (state == '0')//还没有删除过，此时要第一次删除，既将此Category放入回收站
+            string state = cmd.ExecuteScalar().ToString();
+            if (state == "0")//还没有删除过，此时要第一次删除，既将此Category放入回收站
             {
                 bc = new BlogCategory();
                 bc = GetBlogCategoryDetail(bcId);
-                bc.IsDelte = '1';//第一次删除,更新isdelete 为 1 。表示第一次删除
+                bc.IsDelte = "1";//第一次删除,更新isdelete 为 1 。表示第一次删除
                 return BlogCategorySave(bc);
             }
-            else if (state == '1')
+            else if (state == "1")
             {
                 bc = new BlogCategory();
                 bc = GetBlogCategoryDetail(bcId);
-                bc.IsDelte = '2';//第2次删除,更新isdelete 为 2 。表示将Category删除
+                bc.IsDelte = "2";//第2次删除,更新isdelete 为 2 。表示将Category删除
                 return BlogCategorySave(bc);
             }
             else //彻底删除
@@ -73,7 +75,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
         public List<OnlineLeaveWord.Model.BlogCategory> GetBlogCategoryListByUser(OnlineLeaveWord.Model.UserInfo_M u)
         {
             List<BlogCategory> result = new List<BlogCategory>();
-            string strSql = "select * from tb_category where uid = @uid";
+            string strSql = "select * from tb_category where uid = @uid and isdelete=0";
             parematers = new Dictionary<string, object>();
             parematers.Add("@uid", u.UID);
             CreateCommand(cn, strSql);
@@ -110,7 +112,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
                 else
                     result.UId = "系统提供的默认值";
                 result.PublishTime = dr["publishtime"].ToString();
-                result.IsDelte = char.Parse(dr["isdelete"].ToString());
+                result.IsDelte = dr["isdelete"].ToString();
             }
             dr.Close();
             return result;
@@ -130,7 +132,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
                 else
                     result.UId = "系统提供的默认值";
                 result.PublishTime = dr["publishtime"].ToString();
-                result.IsDelte = char.Parse(dr["isdelete"].ToString());
+                result.IsDelte =dr["isdelete"].ToString();
                 listResult.Add(result);
 
             }
@@ -183,6 +185,23 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers.Add("@id", bcId);
             CreateCommand(cn, strSql);
             int result = cmd.ExecuteNonQuery();
+            CloseConnection();
+            return result;
+        }
+
+        #endregion
+
+        #region IBlogCategoryOperation 成员
+
+
+        public List<BlogCategory> GetBlogCategoryListByUser(UserInfo_M u, int flag)
+        {
+            List<BlogCategory> result = new List<BlogCategory>();
+            string strSql = "select * from tb_category where uid = @uid and isdelete=1";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@uid", u.UID);
+            CreateCommand(cn, strSql);
+            result = GetBlogCategoryByDateReader(cmd.ExecuteReader(), 1);//1 是标志位，没有任何用处。
             CloseConnection();
             return result;
         }

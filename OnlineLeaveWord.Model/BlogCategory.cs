@@ -34,9 +34,9 @@ namespace OnlineLeaveWord.Model
             get { return _publishTime; }
             set { _publishTime = value; }
         }
-        char _isDelte;
+        string _isDelte;
 
-        public char IsDelte
+        public string IsDelte
         {
             get { return _isDelte; }
             set { _isDelte = value; }

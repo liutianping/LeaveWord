@@ -9,10 +9,10 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
-public partial class Blog_BlogCategoryDelete : System.Web.UI.Page
+public partial class UserControls_UC_BlogListByPublishTime : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 }

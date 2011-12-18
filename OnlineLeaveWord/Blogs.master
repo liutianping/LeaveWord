@@ -11,7 +11,7 @@
 .pro10 {padding:0 0 0 0px; margin:0; list-style:none; height:30px; position:relative;text-align:center;}
 .pro10 li {float:left; background:url(../images/pro_ten_1.gif); text-align:center;}
 .pro10 li a {display:block; float:left; height:30px; line-height:29px; background:url(../images/pro_ten_0.gif) no-repeat; color:#ddd; text-decoration:none; font-size:12px; font-family:宋体; font-weight:bold; text-align:center; padding:0 0 0 15px; cursor:pointer;}/*/*/
-.pro10 li a b {float:left; text-align:center; display:block; padding:0 52px 0 0; background:url(../images/pro_nine_0.gif) right top;}
+.pro10 li a b {float:left; text-align:center; display:block; padding:0 52px 0 0;}
 .pro10 li.current a {color:#fff; background:url(../images/pro_ten_2.gif);text-align:center;}
 .pro10 li.current a b {background:url(../images/pro_ten_2.gif) right top;text-align:center;}
 .pro10 li a:hover {color:#fff; background:url(../images/pro_ten_1.gif);text-align:center;}
@@ -272,20 +272,18 @@
     <script type="text/javascript">/* <![CDATA[ */if(!qmad.sopen_auto){qmad.sopen_auto=new Object();if(qmad.binit.indexOf("qm_sopen_auto_init(null,sd.id.substring(2),1);")==-1)qmad.binit+="qm_sopen_auto_init(null,sd.id.substring(2),1);";};function qm_sopen_auto_init(e,spec,wait){if(window.qmv)return;if(wait){if(!isNaN(spec)){setTimeout("qm_sopen_auto_init(null,"+spec+")",10);return;}}var i=spec;var ql=new Array();var ss=qmad["qm"+i];var a;if(!(a=document.getElementById("qm"+i))||!ss.sopen_auto_enabled)return;var curl=qm_sopen_split_query(window.location.href);var dd=a.getElementsByTagName("A");for(var j=0;j<dd.length;j++){var aurl=qm_sopen_split_query(dd[j].getAttribute("href",1));loc=curl[0].length-aurl[0].length;var ml=false;if(curl[0].indexOf(aurl[0])+aurl[0].length==curl[0].length)ml=true;if((curl[0].indexOf(aurl[0])==-1||!ml)||(ss.sopen_auto_match_query&&curl[1]!=aurl[1]))continue;if(aurl[0]&&aurl[0]!="#"&&loc>-1){var wa=dd[j];if(wa.cdiv)wa=wa.cdiv;while(!qm_a(wa)){if(wa.tagName=="DIV"){if(wa.idiv){if(ss.sopen_auto_show_subs)ql.push(wa.idiv);x2("qmpersistent",wa.idiv,1);}}else  if(wa.tagName=="A")x2("qmpersistent",wa,1);wa=wa[qp];}}}var se=0;var sc=0;if(qmad.tree){se=qmad.tree.etype;sc=qmad.tree.ctype;qmad.tree.etype=0;qmad.tree.ctype=0;}for(i=ql.length-1;i>=0;i--){if(ql[i]){qm_oo(new Object(),ql[i],1);qm_li=new Object();}}if(qmad.tree){qmad.tree.etype=se;qmad.tree.ctype=sc;}};function qm_sopen_split_query(st){if(!st)st='';st=unescape(st).toLowerCase();st=qm_sopen_auto_clean(st);var rv='';var ri=st.indexOf("?");if(ri+1){rv=st.substring(ri+1);st=st.substring(0,ri);}else rv='';return new Array(st,rv);};function qm_sopen_auto_clean(url){url=url.replace(/\:/g,"");url=url.replace("localhost","");url=url.replace("file","");url=url.replace(/\\/g,"");url=url.replace(/\//g,"");url=url.replace(/\./g,"");return url;}/* ]]> */</script>
 
 </head>
-<body style="text-align:center">
+<body style="text-align: center">
     <div id="divState">
         <%= GetLoginState() %>
     </div>
-    <form id="form1" runat="server">
-        <div id="top3" style="width: auto; height: auto; text-align: left">
-            <div id="divBlogMenu">
-                <uc1:UC_BlogMenu ID="UC_BlogMenu1" runat="server" />
-                <br />
-            </div>
+    <div id="top4">
+        <div id="divBlogMenu">
+            <uc1:UC_BlogMenu ID="UC_BlogMenu1" runat="server" />
+            <form id="form1" runat="server">
+            <br />
+        <div>
             <div style="float: left">
-                <div style="float: left">
-                    <uc2:BlogManagerMenu ID="BlogManagerMenu1" runat="server" />
-                </div>
+                <uc2:BlogManagerMenu ID="BlogManagerMenu1" runat="server" />
             </div>
         </div>
         <div style="float: left; width: 400px">
@@ -299,5 +297,8 @@
             </div>
         </div>
     </form>
+        </div>
+    </div>
+    
 </body>
 </html>

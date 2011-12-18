@@ -38,7 +38,10 @@ body
 	height: auto;
 	text-align: left;
 }
-
+#top4
+{
+	margin-left : 10%;
+}
 /************************中间页面设置**********************************/
 
 #bgcolor

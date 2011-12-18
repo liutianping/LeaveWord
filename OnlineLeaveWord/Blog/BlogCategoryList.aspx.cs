@@ -27,4 +27,10 @@ public partial class Blog_BlogCategoryList : System.Web.UI.Page
         DataList1.DataSource = listPage;
         DataList1.DataBind();
     }
+
+
+    public string GetBlogCountByCategoryID(object o)
+    {
+        return "2";
+    }
 }

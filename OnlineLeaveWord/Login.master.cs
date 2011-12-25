@@ -30,7 +30,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         else
         {
-            sb.Append("<div style='background-color:White'><a href='Login.aspx'><u>登录</u></a>&nbsp;<a href='UserRegesiter.aspx'><u>注册</u></a>&nbsp;<a href='#' onclick='javascript:window.close()'><u>退出</u></a></div>");
+            sb.Append("<a href='Login.aspx'><u>登录</u></a>&nbsp;<a href='UserRegesiter.aspx'><u>注册</u></a>&nbsp;<a href='#' onclick='javascript:window.close()'><u>退出</u></a>");
         }
         return sb.ToString();
     }

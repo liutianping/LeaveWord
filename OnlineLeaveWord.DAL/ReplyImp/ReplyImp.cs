@@ -88,8 +88,6 @@ namespace OnlineLeaveWord.DAL.ReplyImp
 
         public int InsertReply(OnlineLeaveWord.Model.Reply_M reply)
         {
-
-            int result = 0;
             string strSql="";
             connection=ConnectionService.GetInstance().GetConnection();
             parematers = new Dictionary<string, object>();

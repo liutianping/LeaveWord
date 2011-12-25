@@ -17,7 +17,7 @@ public partial class Blog_BlogCategoryList : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         UserInfo_M ui = new UserInfo_M();
-        Session["username"] = "admin";
+        //Session["username"] = "admin";
         if (null != Session["username"])
         {
             ui.UID = Session["username"].ToString();

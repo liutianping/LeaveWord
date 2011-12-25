@@ -5,9 +5,11 @@
         <ItemTemplate>
             <div>
                 <div style="text-align: right">
-                    <a href='BlogListByPublishTime.aspx?publishtime=<%# Eval("publishtime") %>'>
-                        <%# Eval("blogname")%>
-                        (<%# GetBlogCountByCategoryID(Eval("id"))%>) </a>
+                    <a href='../Blog/BlogListByPublishTime.aspx?publishtime=<%# GetContent(Container.DataItem) %>'>
+                    <%# Eval("year") %>年<%# Eval("month") %>月
+                       </a>
+                        
+                        
                 </div>
             </div>
         </ItemTemplate>

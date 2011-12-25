@@ -4,11 +4,12 @@ using System.Text;
 
 namespace OnlineLeaveWord.Model
 {
+    [Serializable]
     public class Blog
     {
-        int _id = 0;
+        int? _id ;
 
-        public int Id
+        public int? Id
         {
             get { return _id; }
             set { _id = value; }

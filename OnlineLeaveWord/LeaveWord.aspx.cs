@@ -18,7 +18,7 @@ public partial class LeaveWord : System.Web.UI.Page
     }
     protected void btnLeaveWord_Click(object sender, EventArgs e)
     {
-        Session["userName"] = "textUser";
+        //Session["userName"] = "textUser";
         LeaveWord_M lw = new LeaveWord_M();
         OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord bllLw = new OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord();
 
@@ -26,7 +26,7 @@ public partial class LeaveWord : System.Web.UI.Page
             lw.Subject = this.txtTitle.Text;
         if (!string.IsNullOrEmpty(this.txtLeaveContent.Text))
             lw.Content = this.txtLeaveContent.Text;
-        if (string.IsNullOrEmpty(Session["userName"].ToString()))
+        if (string.IsNullOrEmpty(Session["username"].ToString()))
             lw.O_Uid = "匿名网友";
         else
             lw.O_Uid = Session["userName"].ToString();

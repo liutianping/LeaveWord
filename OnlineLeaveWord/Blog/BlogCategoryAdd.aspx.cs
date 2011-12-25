@@ -18,7 +18,7 @@ public partial class BlogCategoryAdd : System.Web.UI.Page
     {
         bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
         UserInfo_M ui = new UserInfo_M();
-        Session["username"] = "admin";
+        //Session["username"] = "admin";
         if (null != Session["username"])
         {
             ui.UID = Session["username"].ToString();

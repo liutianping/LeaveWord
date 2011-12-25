@@ -6,9 +6,9 @@ using OnlineLeaveWord.Model;
 
 namespace OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl
 {
-   public class BlogCategoryImpl : IBlogCategoryOperation
+    public class BlogCategoryImpl : IBlogCategoryOperation
     {
-       OnlineLeaveWord.DAL.Blog.BlogInterface.IBlogCategoryOperation bcOperation = null;
+        OnlineLeaveWord.DAL.Blog.BlogInterface.IBlogCategoryOperation bcOperation = null;
         #region IBlogCategoryOperation 成员
 
         public int BlogCategorySave(BlogCategory bc)
@@ -41,15 +41,16 @@ namespace OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl
             return bcOperation.ReturnCategory(bcId);
         }
 
-        #endregion
-
-        #region IBlogCategoryOperation 成员
-
-
         public List<BlogCategory> GetBlogCategoryListByUser(UserInfo_M u, int flag)
         {
             bcOperation = new OnlineLeaveWord.DAL.Blog.BlogImpl.BlogCategoryInterfaceImpl();
-            return bcOperation.GetBlogCategoryListByUser(u,flag);
+            return bcOperation.GetBlogCategoryListByUser(u, flag);
+        }
+
+        public List<BlogCategory> GetBlogCategoryByBlogId(int blogID)
+        {
+            bcOperation = new OnlineLeaveWord.DAL.Blog.BlogImpl.BlogCategoryInterfaceImpl();
+            return bcOperation.GetBlogCategoryByBlogId(blogID);
         }
 
         #endregion

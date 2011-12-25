@@ -11,14 +11,14 @@ using System.Web.UI.HtmlControls;
 using OnlineLeaveWord.Model;
 using System.Collections.Generic;
 
-public partial class Blog_BlogManager : System.Web.UI.Page
+public partial class UserControls_BlogCollection : System.Web.UI.UserControl
 {
     OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL blogBll;
     protected void Page_Load(object sender, EventArgs e)
     {
         blogBll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
         //Session["username"] = "admin";
-        List<Blog> listBlog = blogBll.GetListByUser(Session["username"].ToString());
+        List<Blog> listBlog = blogBll.GetBlogCollectionList(Session["username"].ToString());
         if (listBlog.Count != 0)
         {
             Repeater1.DataSource = listBlog;
@@ -27,10 +27,26 @@ public partial class Blog_BlogManager : System.Web.UI.Page
         else
         {
             Label1.Visible = true;
-            linkBlogAdd.Visible = true;
-            Label1.Text = "您没有博客。";
+            Label1.Text = "您没有删除任何博客。";
         }
     }
+
+    protected void ImgReturn_Click(object sender, EventArgs e)
+    {
+        string blodID = ((ImageButton)sender).CommandArgument;
+        blogBll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
+        try
+        {
+            blogBll.ReturnBlogStatus(int.Parse(blodID));
+            Response.Write("<script>javascript:alert('博客恢复成功！');location.href='BlogCollection.aspx'</script>");
+        }
+        catch (Exception)
+        {
+            Response.Write("<script>javascript:alert('可能由于系统原因，博客恢复失败！');location.href='BlogCollection.aspx'</script>");
+        }
+
+    }
+
     protected void ImgDelete_Click(object sender, EventArgs e)
     {
         string blodID = ((ImageButton)sender).CommandArgument;
@@ -38,11 +54,11 @@ public partial class Blog_BlogManager : System.Web.UI.Page
         try
         {
             blogBll.DeleteBlog(int.Parse(blodID));
-            Response.Write("<script>javascript:alert('博客删除成功！');location.href='BlogManager.aspx'</script>");
+            Response.Write("<script>javascript:alert('博客删除成功！');location.href='BlogCollection.aspx'</script>");
         }
         catch (Exception)
         {
-            Response.Write("<script>javascript:alert('可能由于系统原因，博客删除失败！');location.href='BlogManager.aspx'</script>");
+            Response.Write("<script>javascript:alert('可能由于系统原因，博客删除失败！');location.href='BlogCollection.aspx'</script>");
         }
 
     }
@@ -59,5 +75,3 @@ public partial class Blog_BlogManager : System.Web.UI.Page
         return Server.HtmlEncode(str);
     }
 }
-
-

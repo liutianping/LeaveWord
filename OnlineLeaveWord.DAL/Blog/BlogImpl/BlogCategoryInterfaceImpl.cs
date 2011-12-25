@@ -75,7 +75,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
         public List<OnlineLeaveWord.Model.BlogCategory> GetBlogCategoryListByUser(OnlineLeaveWord.Model.UserInfo_M u)
         {
             List<BlogCategory> result = new List<BlogCategory>();
-            string strSql = "select * from tb_category where uid = @uid and isdelete=0";
+            string strSql = "select * from tb_category where isdelete=0 and (uid = @uid or uid='systemDefault') ";
             parematers = new Dictionary<string, object>();
             parematers.Add("@uid", u.UID);
             CreateCommand(cn, strSql);
@@ -86,7 +86,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 
         #endregion
 
-        private void CreateCommand(SqlConnection cn, string strSql)
+        private void CreateCommand(SqlConnection cn2, string strSql)
         {
             cn = ConnectionService.GetInstance().GetConnection();
             cmd = new SqlCommand(strSql, cn);
@@ -193,7 +193,12 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 
         #region IBlogCategoryOperation 成员
 
-
+        /// <summary>
+        /// 查找已经删除的类别
+        /// </summary>
+        /// <param name="u">用户名</param>
+        /// <param name="flag">标记位，固定为1</param>
+        /// <returns></returns>
         public List<BlogCategory> GetBlogCategoryListByUser(UserInfo_M u, int flag)
         {
             List<BlogCategory> result = new List<BlogCategory>();
@@ -202,6 +207,23 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers.Add("@uid", u.UID);
             CreateCommand(cn, strSql);
             result = GetBlogCategoryByDateReader(cmd.ExecuteReader(), 1);//1 是标志位，没有任何用处。
+            CloseConnection();
+            return result;
+        }
+
+        #endregion
+
+        #region IBlogCategoryOperation 成员
+
+
+        public List<BlogCategory> GetBlogCategoryByBlogId(int blogID)
+        {
+            List<BlogCategory> result = new List<BlogCategory>();
+            string strSql = "SELECT * FROM tb_category a join tb_blog_category b on a.id = b.category_id where b.blog_id=@blogid and isdelete = 0";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@blogid",blogID);
+            CreateCommand(null,strSql);
+            result = GetBlogCategoryByDateReader(cmd.ExecuteReader(),1);
             CloseConnection();
             return result;
         }

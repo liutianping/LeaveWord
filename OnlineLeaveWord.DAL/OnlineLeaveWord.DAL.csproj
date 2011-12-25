@@ -34,6 +34,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blog\BlogImpl\BlogOperationImpl.cs" />
     <Compile Include="Blog\BlogInterface\IBlogCategoryOperation.cs" />
     <Compile Include="Blog\BlogImpl\BlogCategoryInterfaceImpl.cs" />
     <Compile Include="Blog\BlogInterface\IBlogOperation.cs" />

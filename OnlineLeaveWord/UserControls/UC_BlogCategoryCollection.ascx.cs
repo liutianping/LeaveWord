@@ -16,7 +16,7 @@ public partial class UserControls_UC_BlogCollection : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        Session["username"] = "admin";
+        //Session["username"] = "admin";
         string uid = Session["username"].ToString();
         UserInfo_M u = new UserInfo_M();
         u.UID = uid;

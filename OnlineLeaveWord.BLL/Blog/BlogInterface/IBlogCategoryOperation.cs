@@ -13,5 +13,6 @@ namespace OnlineLeaveWord.BLL.Blog.BlogInterface
         List<BlogCategory> GetBlogCategoryListByUser(UserInfo_M u , int flag);
         BlogCategory GetBlogCategoryDetail(int bcId);
         int ReturnCategory(int bcId);
+        List<BlogCategory> GetBlogCategoryByBlogId(int blogID);
     }
 }

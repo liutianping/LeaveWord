@@ -24,6 +24,7 @@ public partial class Blog_BlogDetail : System.Web.UI.Page
         litTitle.Text = blog[0].Blogtitle;
         litContent.Text = blog[0].Blogcontent;
         lblCount.Text = "浏览次数:(" + blog[0].Blog_browercount.ToString() + ")";
+        LinkButton1.PostBackUrl = "../LeaveWordDeatil.aspx?blogid="+id;
     }
 
     private string GetCategoryByList(List<BlogCategory> list)

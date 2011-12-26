@@ -14,7 +14,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
 
         public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByLeaveWordId(OnlineLeaveWord.Model.LeaveWord_M lw)
         {
-            string strSql = "Select * from tb_reply where leaveWordid=@id";
+            string strSql = "Select * from tb_reply where blogid=@id";
             parematers = new Dictionary<string, object>();
             
             parematers.Add("@id",lw.Id);
@@ -65,11 +65,11 @@ namespace OnlineLeaveWord.DAL.ReplyImp
                 lw.Id = int.Parse(dr["id"].ToString());
                 lw.Ip = dr["ip"].ToString();
                 lw.UserName = dr["uName"].ToString();
-                lw.LeaveWordId =dr["LeaveWordID"].ToString();
+                lw.LeaveWordId =dr["blogid"].ToString();
                 lw.Content = dr["content"].ToString();
                 if(int.TryParse(dr["replyID"].ToString(),out temp))
                     lw.ReplyId = temp;//这是反向外键，也就是TB_REPLY的ID
-                lw.Date = DateTime.Parse(dr["DateTime"].ToString());
+                lw.Date = DateTime.Parse(dr["datetime"].ToString());
                 result.Add(lw);
             }
             try
@@ -88,6 +88,8 @@ namespace OnlineLeaveWord.DAL.ReplyImp
 
         public int InsertReply(OnlineLeaveWord.Model.Reply_M reply)
         {
+            if (reply.ReplyId == -1)
+                reply.ReplyId = null;
             string strSql="";
             connection=ConnectionService.GetInstance().GetConnection();
             parematers = new Dictionary<string, object>();
@@ -99,7 +101,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
                 
             else
             {
-                strSql = "Insert into tb_reply (uname,content,datetime,leavewordid,ip) values(@username,@content,@datetime,@leavewordid,@ip)";
+                strSql = "Insert into tb_reply (uname,content,datetime,blogid,ip) values(@username,@content,@datetime,@leavewordid,@ip)";
             }
             parematers = new Dictionary<string, object>();
             parematers.Add("@username",reply.UserName);

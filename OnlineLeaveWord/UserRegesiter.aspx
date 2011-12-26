@@ -8,6 +8,7 @@
     <title>用户注册</title>
 </head>
 <body>
+    <div id="divState"><%= GetLoginState() %></div>
     <form id="form1" runat="server">
     <div>
         <img src="images/top_backgroup.png" style="width: 920px" /><br />
@@ -33,8 +34,7 @@
         个人主页:<asp:TextBox runat="server" ID="txtWebsite"></asp:TextBox>&nbsp
         </div>
         <div style="margin-left:250px;text-align:left">
-        Email: &nbsp; &nbsp;&nbsp;
-            <asp:TextBox runat="server" ID="txtEmail"></asp:TextBox>&nbsp
+        Email:&nbsp; &nbsp;<asp:TextBox runat="server" ID="txtEmail"></asp:TextBox>&nbsp
         </div>
         <div style="margin-left:250px;text-align:left">
         QQ: &nbsp; &nbsp;&nbsp;

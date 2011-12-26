@@ -23,9 +23,10 @@ public partial class LeaveWordManager : System.Web.UI.Page
         {
             replyImp = new ReplyImp();
             UserInfo_M u = new UserInfo_M();
+            u.UID = "uName";
             if (null != Session["username"])
                 u.UID = Session["username"].ToString();
-            u.UID = "uName";
+            
             replyList = (List<Reply_M>)replyImp.GetReplyByUserName(u);
             this.dlLeaveWord.DataSource = replyList;
             this.dlLeaveWord.DataBind();

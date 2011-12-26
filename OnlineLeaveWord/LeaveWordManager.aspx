@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/Blogs.master" AutoEventWireup="true"
     CodeFile="LeaveWordManager.aspx.cs" Inherits="LeaveWordManager" Title="回复管理" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cphBlogContent" runat="Server">
     <table class="alignCenter">
         <asp:DataList ID="dlLeaveWord" runat="server" CssClass="datalist" >
             <HeaderTemplate>

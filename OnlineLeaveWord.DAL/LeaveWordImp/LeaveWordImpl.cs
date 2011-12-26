@@ -97,12 +97,12 @@ namespace OnlineLeaveWord.DAL.LeaveWordImp
             {
                 lw = new OnlineLeaveWord.Model.LeaveWord_M();
                 lw.Id = int.Parse(dr["id"].ToString());
-                lw.Ip = dr["ip"].ToString();
+                //lw.Ip = dr["ip"].ToString();
                 lw.Subject = dr["subject"].ToString();
                 lw.UId = dr["Uid"].ToString();
-                lw.Content = dr["Content"].ToString();
-                lw.Date = DateTime.Parse(dr["DateTime"].ToString());
-                lw.PageViews = dr["pageViews"].ToString();
+                lw.Content = dr["content"].ToString();
+                lw.Date = DateTime.Parse(dr["datetime"].ToString());
+                //lw.PageViews = dr["pageViews"].ToString();
                 result.Add(lw);
             }
             try
@@ -124,7 +124,7 @@ namespace OnlineLeaveWord.DAL.LeaveWordImp
         {
             IList < LeaveWord_M > result=null;
             cn=ConnectionService.GetInstance().GetConnection();
-            string strSql = "SELECT * FROM TB_LEAVEWORD WHERE ID=@id";
+            string strSql = "SELECT * FROM tb_blog WHERE ID=@id";
             parematers = new Dictionary<string, object>();
             parematers.Add("@id", leaveWordId);
             cmd = CreateCommand(cn, strSql, parematers);

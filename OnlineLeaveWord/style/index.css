@@ -13,6 +13,7 @@ body
 
 #divLeft
 {
+	
 	text-align:left
 	}
 /************************头部设置**********************************/
@@ -54,7 +55,7 @@ body
 }
 #left
 {
-	width: 192px;
+	
 	float: left;
 	clear: both;
 
@@ -250,7 +251,7 @@ a:hover
 	}
     .scroll {  
         width: auto;                                     /*宽度*/  
-        height:600px;                                 /*高度*/  
+                                    /*高度*/  
         font-family: ;                                  /*字体*/  
         padding-left: 10px;                             /*层内左边距*/  
         padding-right: 10px;                            /*层内右边距*/  
@@ -276,7 +277,8 @@ a:hover
 	}
 	#divContentPlaceHolder
 {
-	width : 800px;
+	
+	width : auto;
 	}
 #alignCenter
 {
@@ -309,5 +311,19 @@ padding-left:10px; padding-right:10px;
 {
 	right: 0;
 	top: 0;
+	position:fixed;
+}
+
+#divCenter
+{
+	right: 0%;
+	top: 50%;
+	position:fixed;
+}
+
+#divBottom
+{
+	right: 0;
+	bottom: 0;
 	position:fixed;
 }

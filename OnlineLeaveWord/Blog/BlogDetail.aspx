@@ -14,6 +14,8 @@
         </asp:Label>
         
         </div>
+        
+    <asp:LinkButton ID="LinkButton1" runat="server">查看所有回复</asp:LinkButton>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPublishTime" Runat="Server">
 </asp:Content>

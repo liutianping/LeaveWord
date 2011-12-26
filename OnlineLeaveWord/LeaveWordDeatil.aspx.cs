@@ -21,14 +21,18 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
        
             int articleID = 0;
             leaveWord = new OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord();
-            //articleID = int.Parse(Request.QueryString["articleid"].ToString());
-            articleID = 23;
+            articleID = int.Parse(Request.QueryString["blogid"].ToString());
+
+            Literal1.Text = String.Format(
+                "<div><input type='button' value='我也来评论' onclick='alertWin(\"博客评论\",\"请输入评论内容\",400,300,{0},{1})'/></div>",
+               -1,articleID);
+            //articleID = 23;
             LeaveWord_M lw = leaveWord.GetLeaveDetail(articleID);
             if (lw != null)
             {
 
                 lblTitle.Text = lw.Subject;
-                lrContent.Text = lw.Content;
+                //lrContent.Text = lw.Content;
             }
             reply = new OnlineLeaveWord.BLL.ReplyImpl.ReplyImp();
             List<OnlineLeaveWord.Model.Reply_M> replyList = (List<OnlineLeaveWord.Model.Reply_M>)reply.GetReplyByLeaveWordId(lw);
@@ -107,7 +111,7 @@ public partial class LeaveWordDeatil : System.Web.UI.Page
     protected void btnLeaveWord_Click(object sender, EventArgs e)
     {
         Reply_M reply = new Reply_M();
-        reply.Content = txtLeaveContent.Text;
+        //reply.Content = txtLeaveContent.Text;
         reply.Ip = Request.UserHostAddress;
         //reply.UserName = Session["username"].ToString();
         if (null == reply.UserName)

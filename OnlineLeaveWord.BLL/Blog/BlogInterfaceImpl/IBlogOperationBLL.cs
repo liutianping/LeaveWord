@@ -15,6 +15,7 @@ namespace OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl
          List<OnlineLeaveWord.Model.Time_M> GetTimeListByUser(string userName);
          void SaveBlogCategory(int blogID, List<int> listCategoryID);
          List<OnlineLeaveWord.Model.Blog> GetListByUser(string userName);
+         List<OnlineLeaveWord.Model.Blog> GetListTop(int top);
          List<OnlineLeaveWord.Model.Blog> GetBlogCollectionList(string username);
          void ReturnBlogStatus(int blogID);
     }

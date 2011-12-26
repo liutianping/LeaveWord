@@ -14,7 +14,7 @@ namespace OnlineLeaveWord.BLL.ReplyImpl
             throw new Exception("The method or operation is not implemented.");
         }
 
-        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByLeaveWordId(OnlineLeaveWord.Model.LeaveWord_M lw)
+        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByLeaveWordId(OnlineLeaveWord.Model.Blog lw)
         {
             reply = new OnlineLeaveWord.DAL.ReplyImp.ReplyImp();
             return reply.GetReplyByLeaveWordId(lw);

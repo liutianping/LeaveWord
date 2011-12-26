@@ -17,7 +17,7 @@ public partial class Blog_BlogManager : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         blogBll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
-        //Session["username"] = "admin";
+        Session["username"] = "admin";
         List<Blog> listBlog = blogBll.GetListByUser(Session["username"].ToString());
         if (listBlog.Count != 0)
         {

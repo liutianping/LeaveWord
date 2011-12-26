@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Blogs.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/LeaveWord.master" AutoEventWireup="true"
     CodeFile="LeaveWordDeatil.aspx.cs" Inherits="LeaveWordDeatil" Title="留言详情" %>
 
 <%@ Register TagPrefix="dntb" Namespace="DotNetTextBox" Assembly="DotNetTextBox" %>

@@ -12,7 +12,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
         Dictionary<string, object> parematers = null;
         #region IReply ≥…‘±
 
-        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByLeaveWordId(OnlineLeaveWord.Model.LeaveWord_M lw)
+        public IList<OnlineLeaveWord.Model.Reply_M> GetReplyByLeaveWordId(OnlineLeaveWord.Model.Blog lw)
         {
             string strSql = "Select * from tb_reply where blogid=@id";
             parematers = new Dictionary<string, object>();
@@ -95,7 +95,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
             parematers = new Dictionary<string, object>();
             if (reply.ReplyId != null)
             {
-                strSql = "Insert into tb_reply (uname,content,datetime,leavewordid,ip,replyid) values(@username,@content,@datetime,@leavewordid,@ip,@replyid)";
+                strSql = "Insert into tb_reply (uname,content,datetime,blogid,ip,replyid) values(@username,@content,@datetime,@leavewordid,@ip,@replyid)";
                 parematers.Add("@replyid",reply.ReplyId);
             }
                 
@@ -103,7 +103,7 @@ namespace OnlineLeaveWord.DAL.ReplyImp
             {
                 strSql = "Insert into tb_reply (uname,content,datetime,blogid,ip) values(@username,@content,@datetime,@leavewordid,@ip)";
             }
-            parematers = new Dictionary<string, object>();
+            
             parematers.Add("@username",reply.UserName);
             parematers.Add("@content",reply.Content);
             parematers.Add("@datetime",System.DateTime.Now.ToString());

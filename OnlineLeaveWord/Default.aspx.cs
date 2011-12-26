@@ -12,23 +12,28 @@ using OnlineLeaveWord.Model;
 using System.Collections.Generic;
 using System.Text;
 
-public partial class Blog_BlogListByUser : System.Web.UI.Page
+public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-            Session["username"] = "admin";
-            OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL blogbll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
-            List<Blog> list = blogbll.GetListByUser(Session["username"].ToString());
-            this.Repeater1.DataSource = list;
-            Repeater1.DataBind();
+        BindingRptNewBlog();
+
+    }
+
+
+    private void BindingRptNewBlog()
+    {
+        OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL blogbll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
+        List<Blog> list = blogbll.GetListTop(10);
+        rptNewBlog.DataSource = list;
+        rptNewBlog.DataBind();
     }
 
     public string GetString(object o)
     {
         Blog blog = (Blog)o;
         StringBuilder sb = new StringBuilder();
-        sb.Append("<a href='BlogDetail.aspx?blogid=");
+        sb.Append("<a href='Blog/BlogDetail.aspx?blogid=");
         sb.Append(blog.Id.ToString());
         sb.Append("'>");
         sb.Append(Substring(blog.Blogtitle));
@@ -39,14 +44,15 @@ public partial class Blog_BlogListByUser : System.Web.UI.Page
         return sb.ToString();
     }
 
+
     private string Substring(string str)
     {
-        string result=str;
+        string result = str;
         if (str.Length >= 15)
         {
             result = str.Substring(0, 8);
             result += "...";
-            result += str.Substring(str.Length-5);
+            result += str.Substring(str.Length - 5);
         }
         return result;
     }

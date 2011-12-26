@@ -13,25 +13,25 @@ using System.Collections.Generic;
 
 public partial class LeaveWordDeatil : System.Web.UI.Page
 {
-    OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord leaveWord = null;
+    OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL leaveWord = null;
     OnlineLeaveWord.BLL.ReplyImpl.ReplyImp reply = null;
     static int count = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
        
             int articleID = 0;
-            leaveWord = new OnlineLeaveWord.BLL.LeaveWordImpl.LeaveWord();
+            leaveWord = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
             articleID = int.Parse(Request.QueryString["blogid"].ToString());
 
             Literal1.Text = String.Format(
                 "<div><input type='button' value='我也来评论' onclick='alertWin(\"博客评论\",\"请输入评论内容\",400,300,{0},{1})'/></div>",
                -1,articleID);
             //articleID = 23;
-            LeaveWord_M lw = leaveWord.GetLeaveDetail(articleID);
+            Blog lw = leaveWord.GetBlogDetail(articleID)[0];
             if (lw != null)
             {
 
-                lblTitle.Text = lw.Subject;
+                lblTitle.Text = lw.Blogtitle;
                 //lrContent.Text = lw.Content;
             }
             reply = new OnlineLeaveWord.BLL.ReplyImpl.ReplyImp();

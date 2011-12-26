@@ -74,7 +74,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers = new Dictionary<string, object>();
             parematers.Add("@year", arrPublishTime[0]);
             parematers.Add("@month", arrPublishTime[1]);
-            parematers.Add("@username" , userName);
+            parematers.Add("@username", userName);
             CreateCommand(strSql, parematers);
             List<OnlineLeaveWord.Model.Blog> result = GetBlogByDataReader(cmd.ExecuteReader());
             CloseConnection();
@@ -83,7 +83,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 
         public List<OnlineLeaveWord.Model.Blog> GetListByCategoryID(string userName, int id)
         {
-            string strSql = "select * from tb_blog b join tb_blog_category c on b.id = c.blogid where b.uid=@username and c.category = @id and isdelete=0";
+            string strSql = "select * from tb_blog b join tb_blog_category c on b.id = c.blog_id where b.uid=@username and c.category_id = @id and isdelete=0";
             parematers = new Dictionary<string, object>();
             parematers.Add("@username", userName);
             parematers.Add("@id", id);
@@ -220,7 +220,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
         {
             parematers = new Dictionary<string, object>();
             string getBlogCategory = "select id from tb_blog_category where id =@blogid";
-            parematers.Add("@blogid" , blogID);
+            parematers.Add("@blogid", blogID);
             CreateCommand(getBlogCategory, parematers);
             if (cmd.ExecuteReader().Read())
             {
@@ -230,17 +230,28 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             }
             foreach (int var in listCategoryID)
             {
-            
+
                 string strSql = "Insert into tb_blog_category values(@id,@categoryid)";
                 parematers.Clear();
-                parematers.Add("@id" , blogID);
-                parematers.Add("@categoryid" , var);
+                parematers.Add("@id", blogID);
+                parematers.Add("@categoryid", var);
                 CreateCommand(strSql, parematers);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
         }
-
+        public List<OnlineLeaveWord.Model.Blog> GetListTop(int top)
+        {
+            string strSql;
+            if (top != -1)
+                strSql = "select top " + top + " * from tb_blog where isdelete=0 order by blog_publishtime desc";
+            else
+                strSql = "select * from tb_blog where isdelete=0 order by blog_publishtime desc";
+            CreateCommand(strSql, parematers);
+            List<OnlineLeaveWord.Model.Blog> result = GetBlogByDataReader(cmd.ExecuteReader());
+            CloseConnection();
+            return result;
+        }
         public List<OnlineLeaveWord.Model.Blog> GetListByUser(string userName)
         {
             string strSql = "select * from tb_blog where uid = @id and isdelete=0";
@@ -251,11 +262,6 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             CloseConnection();
             return result;
         }
-
-        #endregion
-
-        #region IBlogOperation ≥…‘±
-
 
         public List<OnlineLeaveWord.Model.Blog> GetBlogCollectionList(string username)
         {
@@ -271,10 +277,10 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 
         public void ReturnBlogStatus(int blogID)
         {
-            string strSql="update tb_blog set isdelete=0 where id=@id";
+            string strSql = "update tb_blog set isdelete=0 where id=@id";
             parematers = new Dictionary<string, object>();
-            parematers.Add("@id" , blogID);
-            CreateCommand(strSql,parematers);
+            parematers.Add("@id", blogID);
+            CreateCommand(strSql, parematers);
             cmd.ExecuteNonQuery();
             CloseConnection();
         }

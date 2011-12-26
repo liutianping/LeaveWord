@@ -9,6 +9,8 @@
                     <%# SubString(Eval("blogcontent").ToString())%>
                 </a>
                 
+                <asp:ImageButton ID="imgUpdate" runat="server"
+                    CommandArgument='<%# Eval("id") %>' ImageUrl="~/images/edit.gif" PostBackUrl="~/Blog/UpdateBlog.aspx"/>
                 <asp:ImageButton ID="imgDelete" runat="server" OnClientClick="return confirm('11111111')"
                     CommandArgument='<%# Eval("id") %>' ImageUrl="~/images/-.gif" OnClick="ImgDelete_Click" />
             </div>

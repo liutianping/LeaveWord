@@ -76,6 +76,12 @@ namespace OnlineLeaveWord.BLL.Blog.BlogInterface
             blogOperation.ReturnBlogStatus(blogID);
         }
 
+        public List<OnlineLeaveWord.Model.Blog> GetListTop(int top)
+        {
+            blogOperation = new OnlineLeaveWord.DAL.Blog.BlogImpl.BlogOperationImpl();
+            return blogOperation.GetListTop(top);
+        }
+
         #endregion
     }
 }

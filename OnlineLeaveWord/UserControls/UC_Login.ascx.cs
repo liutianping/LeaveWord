@@ -25,7 +25,7 @@ public partial class UserControls_UC_Login : System.Web.UI.UserControl
         if (login.IsLogin(userInfo))
         {
             Session["username"] = userInfo.UID;
-            Response.Write("<script>alert('登录成功！！！！！！！');location.href='ShareLeaveWordList.aspx'</script>");
+            Response.Write("<script>alert('登录成功！！！！！！！');location.href='Default.aspx'</script>");
         }
         else
             Response.Write("<script>alert('登录失败！！！！！！！')</script>");

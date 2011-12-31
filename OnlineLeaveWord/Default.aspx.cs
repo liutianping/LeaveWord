@@ -53,6 +53,14 @@ public partial class _Default : System.Web.UI.Page
             result = str.Substring(0, 8);
             result += "...";
             result += str.Substring(str.Length - 5);
+            int i=  result.Length;
+        }
+        else
+        {
+            for (int i = 0; i < 17-str.Length; i++)
+            {
+                result += "&nbsp;";
+            }
         }
         return result;
     }

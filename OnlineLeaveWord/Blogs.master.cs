@@ -14,7 +14,8 @@ public partial class Blogs : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        if (null == Session["username"])
+            Server.Transfer("Login.asxp");
     }
 
     public string GetLoginState()
@@ -26,7 +27,7 @@ public partial class Blogs : System.Web.UI.MasterPage
             //已经登录
             sb.Append("欢迎登录:" + Session["username"].ToString());
             sb.Append("&nbsp;&nbsp;");
-            sb.Append("<a href='ShareLeaveWordList.aspx'><u>注销</u></a>&nbsp;<a href='#' onclick='javascript:window.close()'><u>退出</u></a>");
+            sb.Append("<a href='Default.aspx'><u>注销</u></a>&nbsp;<a href='#' onclick='javascript:window.close()'><u>退出</u></a>");
         }
         else
         {

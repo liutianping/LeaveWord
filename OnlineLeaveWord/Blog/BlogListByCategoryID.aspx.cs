@@ -18,7 +18,7 @@ public partial class Blog_BlogListByCategoryID : System.Web.UI.Page
     {
        // OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImp = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
         string categoryId = null != Request.QueryString["categoryid"] ? Request.QueryString["categoryid"] : null;
-        Session["username"] = "admin";
+        //Session["username"] = "admin";
         OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL blogbll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
         List<Blog> list = blogbll.GetListByCategoryID(Session["username"].ToString(),int.Parse(categoryId));
         this.Repeater1.DataSource = list;

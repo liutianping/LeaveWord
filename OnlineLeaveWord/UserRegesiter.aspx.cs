@@ -57,7 +57,7 @@ public partial class UserRegesiter : System.Web.UI.Page
             if (rg.IsRegesiter(u))
             {
                 Session["username"] = u.UID;
-                Response.Write("注册成功！;location.href='ShareLeaveWordList.aspx'");
+                Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "demo", "<script>alert('注册成功！);location.href='Blog/BlogListByUser.aspx';</script>");
             }
             else
             {

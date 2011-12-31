@@ -177,23 +177,6 @@ function alertWin(title, msg, w, h,replyid,LeaveWordId){
                 &nbsp;</div>
         </div>
         <div id="top2">
-            <div id="left">
-                <div id="hot_view">
-                    <img src="images/daohang.jpg" /></div>
-                <div id="hot_text">
-                    <div id="meun">
-                        <ul>
-                            <li><a href="Index.aspx">我的博客</a></li>
-                            <li><a href="register.aspx">最新博客</a></li>
-                            <li><a href="releaseWord.aspx">我的留言</a></li>
-                            <li><a href="myWord.aspx">公共留言</a></li>
-                            <li><a href="LeaveWordManage.aspx">注销登录</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="logo">
-                    <img src="images/index_logo.jpg" alt="" /></div>
-            </div>
             <div id="divContentPlaceHolder">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

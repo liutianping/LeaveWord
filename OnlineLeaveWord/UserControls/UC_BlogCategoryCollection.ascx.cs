@@ -32,6 +32,15 @@ public partial class UserControls_UC_BlogCollection : System.Web.UI.UserControl
         string url = Request.Url.AbsoluteUri;
         OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
         if (1 == bcImpl.BlogCategoryDelete(int.Parse(((ImageButton)sender).CommandArgument)))
+            Response.Write("<script>javascript:alert('恢复成功！');location.href='" + url + "';</script>");
+        else
+            Response.Write("<script>javascript:alert('恢复失败！');location.href='" + url + "';</script>");
+    }
+    protected void ImgButton2_Click(object sender, EventArgs e)
+    {
+        string url = Request.Url.AbsoluteUri;
+        OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
+        if (1 == bcImpl.ReturnCategory(int.Parse(((ImageButton)sender).CommandArgument)))
             Response.Write("<script>javascript:alert('删除成功！');location.href='" + url + "';</script>");
         else
             Response.Write("<script>javascript:alert('删除失败！');location.href='" + url + "';</script>");

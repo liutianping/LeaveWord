@@ -3,17 +3,17 @@
     <ul id="qm0" class="qmmc">
         <li><a class="qmparent" href="javascript:void(0)">博客管理</a>
             <ul>
-            <li><a href="~/Blog/BlogListByUser.aspx" runat="server">我的博客</a></li>
-                <li><a href="~/Blog/BlogAdd.aspx" runat="server">发表博客</a></li>
-                <li><a href="~/Blog/BlogManager.aspx" runat="server">博客管理</a></li>
+            <li><a href="~/Blog/BlogListByUser.aspx" runat="server" id="a1">我的博客</a></li>
+                <li><a href="~/Blog/BlogAdd.aspx" runat="server" id="a2">发表博客</a></li>
+                <li><a href="~/Blog/BlogManager.aspx" runat="server" id="a3">博客管理</a></li>
                 
             </ul>
         </li>
         <li><a class="qmparent" href="javascript:void(0)">类别管理</a>
             <ul>
-            <li><a href="~/Blog/BlogCategoryList.aspx" runat="server">我的类别</a></li>
-                <li><a href="~/Blog/BlogCategoryAdd.aspx" runat="server">新增类别</a></li>
-                <li><a href="~/Blog/BlogCategoryDelete.aspx" runat="server">删除类别</a></li>
+            <li><a href="~/Blog/BlogCategoryList.aspx" runat="server" id="a4">我的类别</a></li>
+                <li><a href="~/Blog/BlogCategoryAdd.aspx" runat="server" id="a5">新增类别</a></li>
+                <li><a href="~/Blog/BlogCategoryDelete.aspx" runat="server" id="a6">删除类别</a></li>
             </ul>
         </li>
         <li><a class="qmparent" href="javascript:void(0)">留言管理</a>
@@ -26,7 +26,7 @@
         
         <li><a class="qmparent" href="javascript:void(0)">回收站</a>
             <ul>
-                <li><a href="~/Blog/BlogCollection.aspx" runat="server">博客回收站</a></li>
+                <li><a href="~/Blog/BlogCollection.aspx" runat="server" id="a7">博客回收站</a></li>
                 <li><a href="javascript:void(0)">评论回收站</a></li>
                 
             </ul>

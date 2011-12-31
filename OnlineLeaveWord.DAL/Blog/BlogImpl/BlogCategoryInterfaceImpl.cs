@@ -20,16 +20,17 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
             parematers = new Dictionary<string, object>();
             if (bc.Id != 0) //更新操作
             {
-                strSql = "update tb_category set categoryName=@categoryname , uId= @uid , publishTime=@publishtime , isdelete=@isdelete where id = @id";
+                strSql = "update tb_category set categoryName=@categoryname , uId= @uid , isdelete=@isdelete where id = @id";
                 parematers.Add("@id", bc.Id);
             }
             else //插入操作
             {
                 strSql = "Insert into tb_category values(@categoryname , @uid , @publishtime , @isdelete)";
+                parematers.Add("@publishtime", bc.PublishTime);
             }
             parematers.Add("@categoryname", bc.CategoryName);
             parematers.Add("@uid", bc.UId);
-            parematers.Add("@publishtime", bc.PublishTime);
+           
             parematers.Add("@isdelete", bc.IsDelte);
 
             CreateCommand(cn, strSql);
@@ -181,6 +182,7 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
 
         public int ReturnCategory(int bcId)
         {
+            parematers = new Dictionary<string, object>();
             string strSql = "update tb_category set isDelete=0 where id = @id";
             parematers.Add("@id", bcId);
             CreateCommand(cn, strSql);
@@ -201,8 +203,17 @@ namespace OnlineLeaveWord.DAL.Blog.BlogImpl
         /// <returns></returns>
         public List<BlogCategory> GetBlogCategoryListByUser(UserInfo_M u, int flag)
         {
+            string strSql;
+            if (flag == -1)
+            {
+                strSql = "select * from tb_category where uid = @uid and isdelete=0";
+            }
+            else
+            {
+                strSql = "select * from tb_category where uid = @uid and isdelete=1";
+            }
             List<BlogCategory> result = new List<BlogCategory>();
-            string strSql = "select * from tb_category where uid = @uid and isdelete=1";
+            
             parematers = new Dictionary<string, object>();
             parematers.Add("@uid", u.UID);
             CreateCommand(cn, strSql);

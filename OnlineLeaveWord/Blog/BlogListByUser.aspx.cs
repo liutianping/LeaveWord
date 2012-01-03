@@ -16,12 +16,14 @@ public partial class Blog_BlogListByUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-            //Session["username"] = "admin";
+
+        if (null != Session["username"])
+        {
             OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL blogbll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
             List<Blog> list = blogbll.GetListByUser(Session["username"].ToString());
             this.Repeater1.DataSource = list;
             Repeater1.DataBind();
+        }
     }
 
     public string GetString(object o)

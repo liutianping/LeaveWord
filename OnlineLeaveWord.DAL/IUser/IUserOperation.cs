@@ -9,6 +9,7 @@ namespace OnlineLeaveWord.DAL.IUser
     {
         int CheckLogin(UserInfo_M userInfo);
         int AddUser(UserInfo_M m);
-
+        UserInfo_M GetUserInfo(string userName);
+        int SaveUserInfo(UserInfo_M u);
     }
 }

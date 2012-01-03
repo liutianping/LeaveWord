@@ -119,8 +119,24 @@ public partial class _Default : System.Web.UI.Page
         string responseBody = stream.ReadToEnd();
         stream.Close();
         response.Close();
-        Session["responseBody"] = responseBody;//用户个人信息在这个里面了！！
+        //Session["responseBody"] = responseBody;//用户个人信息在这个里面了！！
+        GetUserInfo(responseBody);
+        //"<?xml version=\"1.0\" encoding=\"UTF-8\"?><user><id>1918422547</id>
+        //<screen_name>ltp2010</screen_name>
+        //<name>ltp2010</name>
+        //<province>44</province><city>1</city>
+        //<location>广东 广州</location><description></description><url></url><profile_image_url>http://tp4.sinaimg.cn/1918422547/50/0/1</profile_image_url><domain></domain><gender>m</gender><followers_count>3</followers_count><friends_count>25</friends_count><statuses_count>46</statuses_count><favourites_count>0</favourites_count><created_at>Tue Jan 11 00:00:00 +0800 2011</created_at><following>false</following><verified>false</verified><allow_all_act_msg>false</allow_all_act_msg><geo_enabled>false</geo_enabled><status><created_at>Tue Dec 20 00:24:17 +0800 2011</created_at><id>3392472183122369</id><text>曾经的承诺，只是一纸空文，而我多想去实现。</text><source><a href=\"http://weibo.com\">新浪微博</a></source><favorited>false</favorited><truncated>false</truncated><geo/><in_reply_to_status_id></in_reply_to_status_id><in_reply_to_user_id></in_reply_to_user_id><in_reply_to_screen_name></in_repl
+        //  y_to_screen_name><mid>3392472183122369</mid></status></user>"
+        //
         Response.Redirect("Default.aspx");//成功后跳转到的页面
+    }
+
+    private void GetUserInfo(string xmlStr)
+    {
+        int startIndex = xmlStr.IndexOf("<name>");
+        int endIndex = xmlStr.IndexOf("</name>");
+        string userName = xmlStr.Substring(startIndex, endIndex - startIndex);
+        Session["username"] = userName;
     }
 
     private void getRequestToken()

@@ -17,14 +17,17 @@ public partial class BlogAdd : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
-            UserInfo_M userInfo = new UserInfo_M();
-            userInfo.UID = Session["username"].ToString();
-            List<BlogCategory> list = bcImpl.GetBlogCategoryListByUser(userInfo);
-            CheckBoxList1.DataSource = list;
-            CheckBoxList1.DataTextField = "CategoryName";
-            CheckBoxList1.DataValueField = "id";
-            CheckBoxList1.DataBind();
+            if (Session["username"] != null)
+            {
+                OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
+                UserInfo_M userInfo = new UserInfo_M();
+                userInfo.UID = Session["username"].ToString();
+                List<BlogCategory> list = bcImpl.GetBlogCategoryListByUser(userInfo);
+                CheckBoxList1.DataSource = list;
+                CheckBoxList1.DataTextField = "CategoryName";
+                CheckBoxList1.DataValueField = "id";
+                CheckBoxList1.DataBind();
+            }
         }
     }
     protected void btnTrue_Click(object sender, EventArgs e)

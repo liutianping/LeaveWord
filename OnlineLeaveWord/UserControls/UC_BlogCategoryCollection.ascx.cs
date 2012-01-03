@@ -17,14 +17,21 @@ public partial class UserControls_UC_BlogCollection : System.Web.UI.UserControl
     {
 
         //Session["username"] = "admin";
-        string uid = Session["username"].ToString();
-        UserInfo_M u = new UserInfo_M();
-        u.UID = uid;
-
-        OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
-        List<BlogCategory> result = bcImpl.GetBlogCategoryListByUser(u, 1);
-        this.Repeater1.DataSource = result;
-        Repeater1.DataBind();
+        try
+        {
+            string uid = Session["username"].ToString();
+            UserInfo_M u = new UserInfo_M();
+            u.UID = uid;
+            OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
+            List<BlogCategory> result = bcImpl.GetBlogCategoryListByUser(u, 1);
+            this.Repeater1.DataSource = result;
+            Repeater1.DataBind();
+        }
+        catch (Exception)
+        {
+            
+        }
+        
     }
 
     protected void ImgButton_Click(object sender, EventArgs e)
@@ -32,18 +39,18 @@ public partial class UserControls_UC_BlogCollection : System.Web.UI.UserControl
         string url = Request.Url.AbsoluteUri;
         OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
         if (1 == bcImpl.BlogCategoryDelete(int.Parse(((ImageButton)sender).CommandArgument)))
-            Response.Write("<script>javascript:alert('恢复成功！');location.href='" + url + "';</script>");
+            Response.Write("<script>javascript:alert('删除成功！');location.href='" + url + "';</script>");
         else
-            Response.Write("<script>javascript:alert('恢复失败！');location.href='" + url + "';</script>");
+            Response.Write("<script>javascript:alert('删除失败！');location.href='" + url + "';</script>");
     }
     protected void ImgButton2_Click(object sender, EventArgs e)
     {
         string url = Request.Url.AbsoluteUri;
         OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
         if (1 == bcImpl.ReturnCategory(int.Parse(((ImageButton)sender).CommandArgument)))
-            Response.Write("<script>javascript:alert('删除成功！');location.href='" + url + "';</script>");
+            Response.Write("<script>javascript:alert('恢复成功！');location.href='" + url + "';</script>");
         else
-            Response.Write("<script>javascript:alert('删除失败！');location.href='" + url + "';</script>");
+            Response.Write("<script>javascript:alert('恢复失败！');location.href='" + url + "';</script>");
     }
 
     public string GetBlogCountByCategoryID(object o)

@@ -16,12 +16,12 @@
         
     void Application_Error(object sender, EventArgs e) 
     {
-        //Exception objErr = Server.GetLastError().GetBaseException();
-        //string error = "发生异常页: " + Request.Url.ToString() + "＜br＞";
-        //error += "异常信息: " + objErr.Message + "＜br＞";
-        //Server.ClearError();
-        //Application["error"] = error;
-        //Response.Redirect("error.htm");
+        Exception objErr = Server.GetLastError().GetBaseException();
+        string error = "发生异常页: " + Request.Url.ToString() + "＜br＞";
+        error += "异常信息: " + objErr.Message + "＜br＞";
+        Server.ClearError();
+        Application["error"] = error;
+        Response.Redirect("error.htm");
 
     }
 

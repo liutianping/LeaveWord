@@ -16,17 +16,15 @@ public partial class BlogCategoryAdd : System.Web.UI.Page
     OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl bcImpl = null;
     protected void Page_Load(object sender, EventArgs e)
     {
-        bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
-        UserInfo_M ui = new UserInfo_M();
-        //Session["username"] = "admin";
-        if (null != Session["username"])
+        if (Session["username"] != null)
         {
+            bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
+            UserInfo_M ui = new UserInfo_M();
             ui.UID = Session["username"].ToString();
+            List<BlogCategory> listPage = (List<BlogCategory>)bcImpl.GetBlogCategoryListByUser(ui);
+            DataList1.DataSource = listPage;
+            DataList1.DataBind();
         }
-
-        List<BlogCategory> listPage = (List<BlogCategory>)bcImpl.GetBlogCategoryListByUser(ui);
-        DataList1.DataSource = listPage;
-        DataList1.DataBind();
     }
 
 

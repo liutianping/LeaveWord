@@ -21,22 +21,25 @@ public partial class LeaveWordManager : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            replyImp = new ReplyImp();
-            UserInfo_M u = new UserInfo_M();
-            u.UID = "uName";
             if (null != Session["username"])
+            {
+                replyImp = new ReplyImp();
+                UserInfo_M u = new UserInfo_M();
+
+
                 u.UID = Session["username"].ToString();
-            
-            replyList = (List<Reply_M>)replyImp.GetReplyByUserName(u);
-            this.dlLeaveWord.DataSource = replyList;
-            this.dlLeaveWord.DataBind();
+
+                replyList = (List<Reply_M>)replyImp.GetReplyByUserName(u);
+                this.dlLeaveWord.DataSource = replyList;
+                this.dlLeaveWord.DataBind();
+            }
         }
     }
 
     protected void btnDelete_OnClick(object sender, EventArgs e)
     {
         string datakey = (sender as Button).CommandArgument.ToString();
-        replyImp=new ReplyImp();
+        replyImp = new ReplyImp();
         if (1 == replyImp.DeleteReply(int.Parse(datakey)))
         {
             Response.Write("<script>alert('留言已经删除')</script>");

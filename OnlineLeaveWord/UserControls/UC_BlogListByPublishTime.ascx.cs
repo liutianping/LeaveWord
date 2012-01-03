@@ -17,7 +17,7 @@ public partial class UserControls_UC_BlogListByPublishTime : System.Web.UI.UserC
     protected void Page_Load(object sender, EventArgs e)
     {
         blogOperationBll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
-        Session["username"] = "admin";
+       // Session["username"] = "admin";
         List<Time_M> list = blogOperationBll.GetTimeListByUser(Session["username"].ToString());
         this.Repeater1.DataSource = list;
         Repeater1.DataBind();

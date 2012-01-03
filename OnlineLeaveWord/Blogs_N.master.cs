@@ -14,8 +14,7 @@ public partial class Blogs : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (null == Session["username"])
-            Server.Transfer("../Login.aspx");
+        
     }
 
     public string GetLoginState()

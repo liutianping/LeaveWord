@@ -16,19 +16,22 @@ public partial class Blog_BlogManager : System.Web.UI.Page
     OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL blogBll;
     protected void Page_Load(object sender, EventArgs e)
     {
-        blogBll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
-        //Session["username"] = "admin";
-        List<Blog> listBlog = blogBll.GetListByUser(Session["username"].ToString());
-        if (listBlog.Count != 0)
+        if (Session["username"] != null)
         {
-            Repeater1.DataSource = listBlog;
-            Repeater1.DataBind();
-        }
-        else
-        {
-            Label1.Visible = true;
-            linkBlogAdd.Visible = true;
-            Label1.Text = "您没有博客。";
+            blogBll = new OnlineLeaveWord.BLL.Blog.BlogInterface.BlogOperationBLL();
+            //Session["username"] = "admin";
+            List<Blog> listBlog = blogBll.GetListByUser(Session["username"].ToString());
+            if (listBlog.Count != 0)
+            {
+                Repeater1.DataSource = listBlog;
+                Repeater1.DataBind();
+            }
+            else
+            {
+                Label1.Visible = true;
+                linkBlogAdd.Visible = true;
+                Label1.Text = "您没有博客。";
+            }
         }
     }
     protected void ImgDelete_Click(object sender, EventArgs e)

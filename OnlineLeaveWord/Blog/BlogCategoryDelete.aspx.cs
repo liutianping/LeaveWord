@@ -17,6 +17,7 @@ public partial class Blog_BlogCategoryDelete : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            if(Session["username"]!=null)
             Binding();
         }
     }
@@ -25,7 +26,7 @@ public partial class Blog_BlogCategoryDelete : System.Web.UI.Page
         bcImpl = new OnlineLeaveWord.BLL.Blog.BlogInterfaceImpl.BlogCategoryImpl();
         UserInfo_M user = new UserInfo_M();
         user.UID = Session["username"].ToString();
-        user.UID = "admin";
+        //user.UID = "admin";
         this.GridView1.DataSource = bcImpl.GetBlogCategoryListByUser(user,-1);
         this.GridView1.DataBind();
     }

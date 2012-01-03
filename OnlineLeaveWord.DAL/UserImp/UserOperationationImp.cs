@@ -84,6 +84,51 @@ namespace OnlineLeaveWord.DAL.UserImp
                 }
             }
         }
-       
+
+
+        #region IUserOperation ≥…‘±
+
+
+        public UserInfo_M GetUserInfo(string userName)
+        {
+            string strSql = "Select * from tb_user where uid=@uid";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@uid", userName);
+            CreateCommand(cn, strSql);
+            UserInfo_M result = null;
+            SqlDataReader sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                result.UID = sdr["uid"].ToString();
+                result.Password = sdr["pwd"].ToString();
+                result.Sex = sdr["sex"].ToString();
+                result.WebSite = sdr["website"].ToString();
+                result.Email = sdr["email"].ToString();
+                result.Qq = sdr["qq"].ToString();
+                result.Ip = sdr["ip"].ToString();
+            }
+            sdr.Close();
+            CloseConnection();
+            return result;
+        }
+
+        public int SaveUserInfo(UserInfo_M u)
+        {
+            string strSql = "update tb_user set uid=@uid,pwd=@pwd,sex=@sex,website=@website,email=@email,qq=@qq,ip=@ip";
+            parematers = new Dictionary<string, object>();
+            parematers.Add("@uid",u.UID);
+            parematers.Add("@pwd", u.Password);
+            parematers.Add("@sex", u.Sex);
+            parematers.Add("@website", u.WebSite);
+            parematers.Add("@email", u.Email);
+            parematers.Add("@qq", u.Qq);
+            parematers.Add("@ip", u.Ip);
+            CreateCommand(cn, strSql);
+            int result = cmd.ExecuteNonQuery();
+            CloseConnection();
+            return result;
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Blogs.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/LeaveWord.master" AutoEventWireup="true"
     CodeFile="LeaveWordManager.aspx.cs" Inherits="LeaveWordManager" Title="回复管理" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBlogContent" runat="Server">

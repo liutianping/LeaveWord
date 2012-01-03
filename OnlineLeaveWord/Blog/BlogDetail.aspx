@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Blogs.master" AutoEventWireup="true" CodeFile="BlogDetail.aspx.cs"
+﻿<%@ Page Language="C#" MasterPageFile="~/Blogs_N.master" AutoEventWireup="true" CodeFile="BlogDetail.aspx.cs"
     Inherits="Blog_BlogDetail" Title="博客详情" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBlogContent" runat="Server">

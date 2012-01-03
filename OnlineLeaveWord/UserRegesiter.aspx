@@ -19,10 +19,10 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtUserName">用户名为必填项</asp:RequiredFieldValidator></div>
         <div style="margin-left:250px;text-align:left">
         密码: &nbsp;&nbsp;
-            <asp:TextBox runat="server" ID="txtPassword"></asp:TextBox>&nbsp
+            <asp:TextBox runat="server" ID="txtPassword" TextMode="Password"></asp:TextBox>&nbsp
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="密码为必填项" ControlToValidate="txtPassword">密码为必填项</asp:RequiredFieldValidator></div>
         <div style="margin-left:250px;text-align:left">
-        确认密码:<asp:TextBox runat="server" ID="txtConfirmPassword"></asp:TextBox>&nbsp
+        确认密码:<asp:TextBox runat="server" ID="txtConfirmPassword" TextMode="Password"></asp:TextBox>&nbsp
             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword"
                 ControlToValidate="txtConfirmPassword" ErrorMessage="*">两次输入的密码不一致</asp:CompareValidator></div>
         <div style="margin-left:250px;text-align:left">

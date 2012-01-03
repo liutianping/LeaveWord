@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBlogContent" Runat="Server">
 <div style="text-align:left">
 新密码：&nbsp;
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
-确认密码：<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox><br />
+确认密码：<asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
     <br />
 </div>
 <asp:Button runat="server" ID="btnChangePassword" Text = "确认" OnClick="btnChangePassword_Click" /><br />
